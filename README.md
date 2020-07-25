@@ -4,20 +4,20 @@
 
 **Conteúdo**
 
-* Identifying and removing careless responses
-* Exploratory and Confirmatory Factor Analysis (EFA / CFA)
-  * Checking assumptions
-    * Normality test
-    * Kaiser-Meyer-Olkin factor adequacy
-    * Bartlett’s Test of Sphericity
-  * Parallel Factor Analysis
-  * Exploratory Factor Analysis (EFA)
+* [Identifying and removing careless responses](#identifying-and-removing-careless-responses)
+* [Exploratory and Confirmatory Factor Analysis (EFA / CFA)](#exploratory-and-confirmatory-factor-analysis-efa--cfa)
+  * [Checking assumptions](#checking-assumptions)
+    * [Normality test](#normality-test)
+    * [Kaiser-Meyer-Olkin factor adequacy](#kaiser-meyer-olkin-factor-adequacy)
+    * [Bartlett’s Test of Sphericity](#bartletts-test-of-sphericity)
+  * [Parallel Factor Analysis](#parallel-factor-analysis)
+  * [Exploratory Factor Analysis (EFA)](#exploratory-factor-analysis-efa)
     * Performing EFA with n=6 factors
     * Performing EFA with n=5 factors
     * Performing EFA with n=4 factors
     * Performing EFA with n=3 factors
     * Observations in the final structure
-  * Confirmatory Factor Analysis (CFA)
+  * [Confirmatory Factor Analysis (CFA)](#confirmatory-factor-analysis-cfa)
     * CFA of the multimodal model (EFA model)
     * CFA of the second order model
     * CFA of the orthogonal model
@@ -35,16 +35,6 @@ Boxplot of Longstring index based on the responses from Item1 to Item 23.
 
 The boxplot shows that observations in the row positions <37, 59> have high Longstring values,
 
-
-<pre>
-  resp longstring                       ID etapa.de.ensino       area.de.conhecimento                formacao.continuada          unidade Item1 Item2 Item3 Item4 Item5 Item6 Item7 Item8 Item9 Item10 Item11 Item12 Item13 Item14 Item15 Item16 Item17 Item18 Item19 Item20 Item21 Item22 Item23
-2   37         21 5e877f0ea861ff3f7eb25787 Ensino Superior                Engenharias               Mestrado - Concluído UFAL A.C. Simões     4     3     2     2     2     2     2     2     2      2      2      2      2      2      2      2      2      2      2      2      2      2      2
-4   59         15 5e887ceba861ff6760681c8e Ensino Superior           Ciências Humanas                               <NA>     UFAL A.C. Simões     1     1     1     1     1     1     1     1     1      1      1      1      1      1      1      3      2      2      2      2      2      2      2
-8  370         12 5e9f5b44a861ff57078b1401 Ensino Superior          Ciências da Saúde          Pós-doutorado - Concluído   UFAL Arapiraca     5     5     5     5     5     5     5     5     5      5      5      5      4      5      5      5      5      5      5      5      5      4      5
-1   27         11 5e874abca861ff3f7eb256c1 Ensino Superior Ciências Sociais Aplicadas                               <NA>     UFAL A.C. Simões     1     1     1     1     1     1     2     1     1      1      1      3      2      2      2      2      2      2      2      2      2      2      2
-5  112         11 5e8b2da2a861ff132841af27 Ensino Superior           Ciências Humanas                               <NA>     UFAL A.C. Simões     1     1     1     1     1     1     1     1     1      1      1      2      2      2      2      2      4      1      1      1      1      1      2
-6  257         11 5e9d8b77a861ff3b572b80fb Ensino Superior Ciências Exatas e da Terra Formação continuada - Em andamento UFAL A.C. Simões     3     2     2     2     2     2     2     2     2      2      2      2      1      2      1      3      2      2      2      2      1      2      3
-</pre>
 
 Based on the boxplot, these both responses <37, 59> were remove and the responses without careless are located in the CSV-file:
 [data/response.csv](data/response.csv)
