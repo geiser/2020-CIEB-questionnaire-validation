@@ -246,7 +246,6 @@ Based on this result, there are incosistences:
 ```r
 fa(r = datItem, nfactors = 5, rotate = "promax", fm = "ml", cor = "poly")
 ```
-
 <pre>
 Standardized loadings (pattern matrix) based upon correlation matrix
          ML3   ML5   ML2   ML1   ML4     h2   u2 com
