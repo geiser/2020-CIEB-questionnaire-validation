@@ -33,10 +33,10 @@ Boxplot of Longstring index based on the responses from Item1 to Item 23.
 
 ![Boxplot of longstring index](report/longstring-careless.png)_
 
-The boxplot shows that observations in the row positions <37, 59> have high Longstring values,
+The boxplot shows that observations in the row positions <27, 59> have high Longstring values,
 
 
-Based on the boxplot, these both responses <37, 59> were remove and the responses without careless are located in the CSV-file:
+Based on the boxplot, these both responses <27, 59> were remove and the responses without careless are located in the CSV-file:
 [data/response.csv](data/response.csv)
 
 
