@@ -52,7 +52,7 @@ Based on the boxplot, these both responses <37, 59> were remove and the response
 (mvn_mod <- mvn(select(dat, starts_with("Item"))))  
 ```
 
-<pre>
+```
 $multivariateNormality
              Test        Statistic              p value Result
 1 Mardia Skewness  3940.7371584358 7.26918169967075e-90     NO
@@ -110,17 +110,17 @@ Item20 380 2.639474 0.9955149      3   1   5    2    3  0.23754176 -0.67948505
 Item21 380 2.265789 1.0628722      2   1   5    1    3  0.48318984 -0.39931785
 Item22 380 2.455263 1.0353125      2   1   5    2    3  0.67419807 -0.39399113
 Item23 380 2.936842 0.9224326      3   1   5    2    3 -0.09656841 -0.08854457
-</pre>
+```
 
 
 #### Kaiser-Meyer-Olkin factor adequacy
 
-<pre>
+```
 Overall MSA =  0.95
 MSA for each item = 
  Item1  Item2  Item3  Item4  Item5  Item6  Item7  Item8  Item9 Item10 Item11 Item12 Item13 Item14 Item15 Item16 Item17 Item18 Item19 Item20 Item21 Item22 Item23 
   0.95   0.94   0.93   0.94   0.95   0.94   0.97   0.96   0.96   0.96   0.95   0.90   0.94   0.89   0.94   0.93   0.94   0.95   0.95   0.97   0.93   0.95   0.97 
-</pre>
+```
 
 > obs: 0.90s (marvelous), 0.80s (meritorious), 0.70s (middling), 0.60s (mediocre), 0.50s (miserable), < 0.50 (unacceptable)
 
@@ -131,10 +131,10 @@ MSA for each item =
 
 There is sufficient significant correlation in the data for factor analaysis
 
-<pre>
+```
   Bartlett's test of sphericity:
 Chisq(253) = 4042.93, p < .001
-</pre>
+```
 
 
 ### Parallel Factor Analysis
@@ -151,7 +151,7 @@ Six (06) factors are suggested to build the structures
 ```r
 fa(r = datItem, nfactors = 6, rotate = "promax", fm = "ml", cor = "poly")
 ```
-<pre>
+```
 Standardized loadings (pattern matrix) based upon correlation matrix
          ML1   ML3   ML2   ML6   ML4   ML5     h2   u2 com
 Item1   0.61  0.02 -0.15 -0.03  0.26  0.09   0.55 0.45 1.5
@@ -215,23 +215,23 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.95 0.94 0.93 0.92 0.89 0.90
 Multiple R square of scores with factors          0.91 0.88 0.87 0.85 0.80 0.81
 Minimum correlation of possible factor scores     0.82 0.76 0.74 0.69 0.59 0.61
-</pre>
+```
 
 Observations:
 
 * Based on Hair et al. (2010), with a sample size n>350 - the minimal loading should be 0.3, so that the following items should be removed:
-<pre>
+```
          ML1   ML3   ML2   ML6   ML4   ML5     h2   u2 com
 Item20  0.08  0.25  0.17  0.12  0.10  0.12   0.46 0.54 3.4
-</pre>
+```
 
 * Cross-loading problems (difference less than 0.20)
-<pre>
+```
          ML1   ML3   ML2   ML6   ML4   ML5     h2   u2 com
 Item4   0.55  0.09 -0.09 -0.05 -0.02  0.44   0.66 0.34 2.1
 Item7  -0.01  0.37 -0.02  0.19 -0.07  0.46   0.61 0.39 2.4
 Item16  0.07  0.12 -0.11  0.26  0.36 -0.11   0.34 0.66 2.6
-</pre>
+```
 
 Removing the cross-loading problems and itens that loading less than 0.30, we obtain the following structure diagram: 
 
@@ -244,10 +244,10 @@ Based on this result, there are incosistences:
 
 #### Performing EFA with n=5 factors
 
-```r`
+```r
 fa(r = datItem, nfactors = 5, rotate = "promax", fm = "ml", cor = "poly")
 ```
-<pre>
+```
 Standardized loadings (pattern matrix) based upon correlation matrix
          ML3   ML5   ML2   ML1   ML4     h2   u2 com
 Item1   0.62  0.00 -0.19  0.12  0.25   0.54 0.46 1.6
@@ -310,16 +310,16 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.96 0.94 0.94 0.93 0.89
 Multiple R square of scores with factors          0.91 0.88 0.88 0.86 0.79
 Minimum correlation of possible factor scores     0.83 0.76 0.77 0.71 0.59
-</pre>
+```
 
 Observations:
 
 * Items without loading factor greather than 0.3
-<pre>
+```
          ML3   ML5   ML2   ML1   ML4     h2   u2 com
 Item8   0.26  0.21  0.13  0.22 -0.02   0.47 0.53 3.5
 Item20  0.11  0.28  0.20  0.14  0.09   0.46 0.54 3.0
-</pre>
+```
 
 
 * Cross-loading problems (difference less than 0.20)
