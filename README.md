@@ -12,16 +12,16 @@
     * [Bartlett’s Test of Sphericity](#bartletts-test-of-sphericity)
   * [Parallel Factor Analysis](#parallel-factor-analysis)
   * [Exploratory Factor Analysis (EFA)](#exploratory-factor-analysis-efa)
-    * Performing EFA with n=6 factors
-    * Performing EFA with n=5 factors
-    * Performing EFA with n=4 factors
-    * Performing EFA with n=3 factors
-    * Observations in the final structure
+    * [Performing EFA with n=6 factors](#performing-efa-with-n6-factors)
+    * [Performing EFA with n=5 factors](#performing-efa-with-n5-factors)
+    * [Performing EFA with n=4 factors](#performing-efa-with-n4-factors)
+    * [Performing EFA with n=3 factors](#performing-efa-with-n3-factors)
+    * [Observations in the final structure](#observations-in-the-final-structure)
   * [Confirmatory Factor Analysis (CFA)](#confirmatory-factor-analysis-cfa)
-    * CFA of the multimodal model (EFA model)
-    * CFA of the second order model
-    * CFA of the orthogonal model
-    * Definition of the final model
+    * [CFA of the multimodal model (EFA model)](#cfa-of-the-multimodal-model-efa-model)
+    * [CFA of the second order model](#cfa-of-the-second-order-model)
+    * [CFA of the orthogonal model](#cfa-of-the-orthogonal-model)
+    * [Definition of the final model](#definition-of-the-final-model)
 
 ***
 
