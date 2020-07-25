@@ -1,0 +1,19 @@
+[Unit]
+Description=%i service of 2020-CIEB-questionnaire-validation with docker-compose
+
+[Service]
+Restart=always
+WorkingDirectory=/cygdrive/d/Users/gcc/Workspace/2020-CIEB-questionnaire-validation
+# Remove old containers, pull images and build containers
+ExecStartPre=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p 2020-CIEB-questionnaire-validation down -v
+ExecStartPre=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p 2020-CIEB-questionnaire-validation pull %i
+ExecStartPre=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p 2020-CIEB-questionnaire-validation build --force-rm %i
+# Compose up
+ExecStart=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p 2020-CIEB-questionnaire-validation up --no-build %i
+# Compose down and restart
+ExecStop=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p 2020-CIEB-questionnaire-validation down -v
+ExecReload=/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose -p 2020-CIEB-questionnaire-validation restart %i
+
+[Install]
+WantedBy=multi-user.target
+
