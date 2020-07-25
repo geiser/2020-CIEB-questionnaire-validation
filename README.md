@@ -51,8 +51,7 @@ Based on the boxplot, these both responses <37, 59> were remove and the response
 ```r
 (mvn_mod <- mvn(select(dat, starts_with("Item"))))  
 ```
-
-```
+<pre>
 $multivariateNormality
              Test        Statistic              p value Result
 1 Mardia Skewness  3940.7371584358 7.26918169967075e-90     NO
@@ -110,17 +109,17 @@ Item20 380 2.639474 0.9955149      3   1   5    2    3  0.23754176 -0.67948505
 Item21 380 2.265789 1.0628722      2   1   5    1    3  0.48318984 -0.39931785
 Item22 380 2.455263 1.0353125      2   1   5    2    3  0.67419807 -0.39399113
 Item23 380 2.936842 0.9224326      3   1   5    2    3 -0.09656841 -0.08854457
-```
+</pre>
 
 
 #### Kaiser-Meyer-Olkin factor adequacy
 
-```
+<pre>
 Overall MSA =  0.95
 MSA for each item = 
  Item1  Item2  Item3  Item4  Item5  Item6  Item7  Item8  Item9 Item10 Item11 Item12 Item13 Item14 Item15 Item16 Item17 Item18 Item19 Item20 Item21 Item22 Item23 
   0.95   0.94   0.93   0.94   0.95   0.94   0.97   0.96   0.96   0.96   0.95   0.90   0.94   0.89   0.94   0.93   0.94   0.95   0.95   0.97   0.93   0.95   0.97 
-```
+</pre>
 
 > obs: 0.90s (marvelous), 0.80s (meritorious), 0.70s (middling), 0.60s (mediocre), 0.50s (miserable), < 0.50 (unacceptable)
 
@@ -131,10 +130,10 @@ MSA for each item =
 
 There is sufficient significant correlation in the data for factor analaysis
 
-```
+<pre>
   Bartlett's test of sphericity:
 Chisq(253) = 4042.93, p < .001
-```
+</pre>
 
 
 ### Parallel Factor Analysis
@@ -151,7 +150,7 @@ Six (06) factors are suggested to build the structures
 ```r
 fa(r = datItem, nfactors = 6, rotate = "promax", fm = "ml", cor = "poly")
 ```
-```
+<pre>
 Standardized loadings (pattern matrix) based upon correlation matrix
          ML1   ML3   ML2   ML6   ML4   ML5     h2   u2 com
 Item1   0.61  0.02 -0.15 -0.03  0.26  0.09   0.55 0.45 1.5
@@ -215,23 +214,23 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.95 0.94 0.93 0.92 0.89 0.90
 Multiple R square of scores with factors          0.91 0.88 0.87 0.85 0.80 0.81
 Minimum correlation of possible factor scores     0.82 0.76 0.74 0.69 0.59 0.61
-```
+</pre>
 
 Observations:
 
 * Based on Hair et al. (2010), with a sample size n>350 - the minimal loading should be 0.3, so that the following items should be removed:
-```
+<pre>
          ML1   ML3   ML2   ML6   ML4   ML5     h2   u2 com
 Item20  0.08  0.25  0.17  0.12  0.10  0.12   0.46 0.54 3.4
-```
+</pre>
 
 * Cross-loading problems (difference less than 0.20)
-```
+<pre>
          ML1   ML3   ML2   ML6   ML4   ML5     h2   u2 com
 Item4   0.55  0.09 -0.09 -0.05 -0.02  0.44   0.66 0.34 2.1
 Item7  -0.01  0.37 -0.02  0.19 -0.07  0.46   0.61 0.39 2.4
 Item16  0.07  0.12 -0.11  0.26  0.36 -0.11   0.34 0.66 2.6
-```
+</pre>
 
 Removing the cross-loading problems and itens that loading less than 0.30, we obtain the following structure diagram: 
 
@@ -247,7 +246,7 @@ Based on this result, there are incosistences:
 ```r
 fa(r = datItem, nfactors = 5, rotate = "promax", fm = "ml", cor = "poly")
 ```
-```
+<pre>
 Standardized loadings (pattern matrix) based upon correlation matrix
          ML3   ML5   ML2   ML1   ML4     h2   u2 com
 Item1   0.62  0.00 -0.19  0.12  0.25   0.54 0.46 1.6
@@ -310,20 +309,20 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.96 0.94 0.94 0.93 0.89
 Multiple R square of scores with factors          0.91 0.88 0.88 0.86 0.79
 Minimum correlation of possible factor scores     0.83 0.76 0.77 0.71 0.59
-```
+</pre>
 
 Observations:
 
 * Items without loading factor greather than 0.3
-```
+<pre>
          ML3   ML5   ML2   ML1   ML4     h2   u2 com
 Item8   0.26  0.21  0.13  0.22 -0.02   0.47 0.53 3.5
 Item20  0.11  0.28  0.20  0.14  0.09   0.46 0.54 3.0
-```
+</pre>
 
 
 * Cross-loading problems (difference less than 0.20)
-```
+<pre>
          ML3   ML5   ML2   ML1   ML4     h2   u2 com
 Item4   0.47  0.02 -0.13  0.50 -0.01   0.64 0.36 2.1
 Item5   0.52 -0.16  0.07  0.42  0.02   0.63 0.37 2.2
@@ -332,7 +331,7 @@ Item9   0.38  0.29 -0.01  0.08  0.04   0.48 0.52 2.0
 Item10  0.31  0.08  0.30  0.12 -0.09   0.43 0.57 2.6
 Item16  0.21  0.24 -0.06 -0.11  0.32   0.31 0.69 3.1
 Item23  0.24  0.36  0.16 -0.09  0.03   0.42 0.58 2.4
-```
+</pre>
 
 
 Removing the cross-loading problems and itens that loading less than 0.30, we obtain the following structure diagram: 
@@ -350,7 +349,7 @@ Based on this result, there are incosistences:
 ```r
 fa(r = datItem, nfactors = 4, rotate = "promax", fm = "ml", cor = "poly")
 ```
-```
+<pre>
 Standardized loadings (pattern matrix) based upon correlation matrix
          ML1   ML4   ML2   ML3     h2   u2 com
 Item1   0.57  0.18 -0.19  0.24   0.55 0.45 1.9
@@ -412,18 +411,18 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.95 0.94 0.93 0.88
 Multiple R square of scores with factors          0.91 0.88 0.87 0.77
 Minimum correlation of possible factor scores     0.82 0.76 0.74 0.54
-```
+</pre>
  
 Observations:
 
 * Itens with less than 0.30 in the loading factor
-```
+<pre>
          ML1   ML4   ML2   ML3     h2   u2 com
 Item10  0.26  0.23  0.28 -0.06   0.42 0.58 3.1
-```
+</pre>
 
 * Crossloading problems
-```
+<pre>
          ML1   ML4   ML2   ML3     h2   u2 com
 Item2   0.50  0.48 -0.19  0.01   0.62 0.38 2.3
 Item6   0.58 -0.27  0.57 -0.02   0.70 0.30 2.4
@@ -431,7 +430,7 @@ Item7   0.36  0.14  0.40 -0.13   0.54 0.46 2.4
 Item8   0.31  0.24  0.25 -0.03   0.47 0.53 2.8
 Item16  0.02  0.39 -0.09  0.30   0.32 0.68 2.0
 Item20  0.13  0.28  0.31  0.08   0.46 0.54 2.5
-```
+</pre>
 
 
 Removing the crossloading problems and itens that loading less than 0.30, we obtain the following structure diagram: 
@@ -448,7 +447,7 @@ Based on this result, there are incosistences:
 ```r
 fa(r = datItem, nfactors = 3, rotate = "promax", fm = "ml", cor = "poly")
 ```
-```
+<pre>
          ML1   ML2   ML3     h2   u2 com
 Item1   0.46 -0.15  0.41   0.49 0.51 2.2
 Item2   0.41 -0.22  0.60   0.62 0.38 2.1
@@ -508,25 +507,25 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.95 0.94 0.94
 Multiple R square of scores with factors          0.91 0.89 0.88
 Minimum correlation of possible factor scores     0.82 0.79 0.76
-```
+</pre>
 
 Observations:
 
 * Itens with less than 0.30 as loading in any latent factor
-```
+<pre>
          ML1   ML2   ML3     h2   u2 com
 Item10  0.29  0.25  0.18   0.41 0.59 2.6
-```
+</pre>
 
 * Crossloading itens with less than 0.20 of difference between factors
-```
+<pre>
          ML1   ML2   ML3     h2   u2 com
 Item1   0.46 -0.15  0.41   0.49 0.51 2.2
 Item7   0.46  0.32  0.01   0.52 0.48 1.8
 Item8   0.34  0.22  0.21   0.47 0.53 2.4
 Item20  0.16  0.35  0.25   0.46 0.54 2.3
 Item22 -0.08  0.34  0.47   0.47 0.53 1.9
-```
+</pre>
 
 Removing the crossloading problems and itens that loading less than 0.30, we obtain the following structure diagram: 
 
@@ -534,7 +533,7 @@ Removing the crossloading problems and itens that loading less than 0.30, we obt
 
 ### Observations in the final structure
 
-```
+<pre>
 Standardized loadings (pattern matrix) based upon correlation matrix
          ML2   ML1   ML3     h2   u2 com
 Item15  0.85 -0.05 -0.06   0.62 0.38 1.0
@@ -589,7 +588,7 @@ Measures of factor score adequacy
 Correlation of (regression) scores with factors   0.94 0.94 0.93
 Multiple R square of scores with factors          0.88 0.89 0.86
 Minimum correlation of possible factor scores     0.75 0.78 0.72
-```
+</pre>
 
 Observation:
 
@@ -610,7 +609,7 @@ Detailed result from EFA in the excel-file: [report/efa.xlsx](report/efa.xlsx)
 
 #### CFA of the multimodal model (EFA model)
 
-```
+<pre>
 lavaan 0.6-5 ended normally after 19 iterations
 
   Estimator                                         ML
@@ -753,14 +752,14 @@ Variances:
     ML2               1.000                               1.000    1.000
     ML1               1.000                               1.000    1.000
     ML3               1.000                               1.000    1.000
-```
+</pre>
 
 ![CFA diagram for multimodal structure](report/cfa-multi-mdl.png)
 
 
 #### CFA of the second order model
 
-```
+<pre>
 lavaan 0.6-5 ended normally after 47 iterations
 
   Estimator                                         ML
@@ -900,14 +899,14 @@ Variances:
    .ML1               1.000                               0.302    0.302
    .ML3               1.000                               0.099    0.099
     DTL               1.000                               1.000    1.000
-```
+</pre>
 
 
 ![CFA diagram for 2nd order model structure](report/cfa-2nd-order-mdl.png)
 
 #### CFA of the orthogonal model
 
-```
+<pre>
 lavaan 0.6-5 ended normally after 16 iterations
 
   Estimator                                         ML
@@ -1050,7 +1049,7 @@ Variances:
     ML2               1.000                               1.000    1.000
     ML1               1.000                               1.000    1.000
     ML3               1.000                               1.000    1.000
-```
+</pre>
 
 
 ![CFA diagram for orthogonal model structure](report/cfa-orth-mdl.png)
@@ -1058,7 +1057,7 @@ Variances:
 Summary of CFA - model fit measurements
 
 
-```
+<pre>
 model                          multi-mdl     2nd-order-mdl     orth-mdl          
 chisq                           362.546       362.546           813.081           
 df                              116           116               119               
@@ -1084,7 +1083,7 @@ cfi.obs                         NA            NA                unacceptable fit
 tli.obs                         NA            NA                unacceptable fit  
 rmsea.obs                       NA            NA                poor fit          
 rmsea.pvalue.obs                NA            NA                NA                
-```
+</pre>
 
 Available also as CSV-file in: [report/cfa-summary.csv](report/cfa-summary.csv)
 
@@ -1098,12 +1097,12 @@ There is not significant difference between 2nd-order-model and multi-mdl
 ```r
 anova(cfa_mdls$`multi-mdl`$cfa, cfa_mdls$`2nd-order-mdl`$cfa)
 ```
-```
+<pre>
 Scaled Chi-Squared Difference Test (method = “satorra.bentler.2001”)
                         Df   AIC   BIC  Chisq  Chisq diff Df diff Pr(>Chisq)
 cfa_mdls$`multi-mdl`$cfa     116 16642 16855 362.55                               
 cfa_mdls$`2nd-order-mdl`$cfa 116 16642 16855 362.55 -4.0878e-09       0   
-```
+</pre>
 
 
 Detailed information of CFA in the excel-file: [report/cfa.xlsx](report/cfa.xlsx)
