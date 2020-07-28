@@ -173,4 +173,26 @@ lapply(mdls, FUN = function(x) {
 xlsx::saveWorkbook(wb, "report/cfa.xlsx")
 
 
+####################################################
+## Saving data for Reliability Analysis and MGCFA ##
+####################################################
 
+library(stringr)
+
+dat <- read_csv('data/responses.csv')
+
+etapa.de.ensino <- unique(unlist(str_split(unique(dat$etapa.de.ensino),';')))
+area.de.conhecimento <- unique(unlist(str_split(unique(dat$area.de.conhecimento),';')))
+formacao.continuada <- unique(unlist(str_split(unique(dat$formacao.continuada),';')))
+
+idx <- (dat$etapa.de.ensino %in% etapa.de.ensino &
+          dat$area.de.conhecimento %in% area.de.conhecimento &
+          dat$formacao.continuada %in% formacao.continuada) 
+
+rdat <- select(dat[idx,], -starts_with("Item"))
+datItem <- dat[,c('ID','Item4','Item5','Item3','Item6',
+                  'Item15','Item13','Item17','Item18','Item14','Item12',
+                  'Item19','Item2','Item11','Item16','Item9','Item23','Item21')]
+rdat <- merge(rdat, datItem)
+
+write_csv(rdat, 'data/responses-cfa.csv')

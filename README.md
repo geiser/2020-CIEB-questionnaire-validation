@@ -22,7 +22,9 @@
     * [CFA of the second order model](#cfa-of-the-second-order-model)
     * [CFA of the orthogonal model](#cfa-of-the-orthogonal-model)
     * [Definition of the final model](#definition-of-the-final-model)
-
+  * [Reliability Test](#reliability-test)
+  * [Multi-Group Confirmatory Factor Analysis (MGCFA)](#multi-group-confirmatory-factor-analysis-mgcfa)
+    
 ***
 
 ## Identifying and removing careless responses
@@ -1110,4 +1112,38 @@ cfa_mdls$`2nd-order-mdl`$cfa 116 16642 16855 362.55 -4.0878e-09       0
 
 Detailed information of CFA in the excel-file: [report/cfa.xlsx](report/cfa.xlsx)
 
- 
+
+### Reliability Test
+
+Cronbach's alpha for reliability test in which DTL = Digital Tecnology Level (all itenms);
+ML1 = Pedagogical Level (```Pedagógica``` - Item4,Item5,Item3,Item6);
+ML2 = Digital Citizenship (```Pedagógica``` - Item15,Item13,Item17,Item18,Item14,Item12); and
+ML3 = Professional Development (```Desenvolvimento Profissional``` - Item19,Item2,Item11,Item16,Item9,Item23,Item21)
+
+```
+                                        val   n  DTL  ML1  ML2  ML3
+1                                      Todos 330 0.91 0.83 0.80 0.82
+17                 Unidade: UFAL A.C. Simões 241 0.91 0.84 0.79 0.82
+29                   Unidade: UFAL Arapiraca  55 0.91 0.82 0.85 0.79
+9                     Etapa: Ensino Superior 324 0.91 0.83 0.80 0.82
+3           Area: Ciências Exatas e da Terra  48 0.90 0.79 0.78 0.79
+4                     Area: Ciências Humanas  45 0.92 0.85 0.82 0.80
+5           Area: Ciências Sociais Aplicadas  53 0.90 0.85 0.76 0.84
+6                    Area: Ciências da Saúde  65 0.91 0.83 0.80 0.80
+7                          Area: Engenharias  31 0.89 0.79 0.77 0.86
+8           Area: Linguística.Letras e Artes  32 0.91 0.85 0.80 0.86
+2  Formação: Formação continuada - Concluída  46 0.89 0.77 0.84 0.76
+```
+
+
+Detailed information of reliability test in the excel-file: [report/reliability/full-all.xlsx](report/reliability/full-all.xlsx)
+
+Summary: [report/reliability/summary-all.csv](report/reliability/summary-all.csv)
+
+### Multi-Group Confirmatory Factor Analysis (MGCFA)
+
+Assumption: The sample size for groups should be greather than 100.
+
+There are not two groups by ```Unidade```, ```Etapa```, ```Area``` and ```Formação``` with  ```n > 100```, so that we can't carry out MGCFA.  
+
+
