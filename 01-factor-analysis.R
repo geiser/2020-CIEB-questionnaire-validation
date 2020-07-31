@@ -89,6 +89,17 @@ png(filename = "report/loading-diagram-fa3.png", width = 600, height = 600)
 fa.diagram(fa_mod_3, main='',sort=T)
 dev.off()
 
+## alternative EFA with n=3 factors
+
+(fa_mod_3alt <- fa(datItem[,!colnames(datItem) %in% c("Item10","Item1","Item7","Item8","Item20","Item22",
+                                                      "Item2","Item9","Item11","Item16")],
+                   nfactors = 3, rotate = "promax", cor = 'poly', fm='ml'))
+
+
+png(filename = "report/loading-diagram-fa3alt.png", width = 600, height = 600)
+fa.diagram(fa_mod_3alt, main='',sort=T)
+dev.off()
+
 
 ## Write results of EFA in Excel Workbook
 filename <- "report/efa.xlsx"
@@ -98,7 +109,9 @@ write_kmo_in_workbook(kmo_mod, wb)
 write_efa_in_workbook(fa_mod_6, wb, "EFA-f6", "EFA with n=6 factors")
 write_efa_in_workbook(fa_mod_5, wb, "EFA-f5", "EFA with n=5 factors")
 write_efa_in_workbook(fa_mod_4, wb, "EFA-f4", "EFA with n=4 factors")
-write_efa_in_workbook(fa_mod_3, wb, "EFA-final", "EFA with n=3 factors (Final)")
+write_efa_in_workbook(fa_mod_3, wb, "EFA-final", "EFA with n=3 factors")
+write_efa_in_workbook(fa_mod_3alt, wb, "EFA-final-alt", "Alternative EFA with n=3 factors")
+
 xlsx::saveWorkbook(wb, filename)
 
 
@@ -109,7 +122,8 @@ xlsx::saveWorkbook(wb, filename)
 ritens <- c("Item10","Item1","Item7","Item8","Item20","Item22")
 rdat <- as.data.frame(datItem[,!colnames(datItem) %in% ritens])
 
-mdls <- list('multi-mdl'=list(name='multi-mdl', mdl='
+mdls <- list(
+  'multi-mdl'=list(name='multi-mdl', mdl='
 ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
 ML1 =~ Item4+Item5+Item3+Item6
 ML3 =~ Item19+Item2+Item11+Item16+Item9+Item23+Item21
@@ -118,13 +132,62 @@ ML1 ~~ ML2
 ML1 ~~ ML3
 
 ML2 ~~ ML3
-'), '2nd-order-mdl'=list(name='2nd-order-mdl', mdl='
+'),
+  'alt-multi-mdl'=list(name='alt-multi-mdl', mdl='
+ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
+ML1 =~ Item4+Item5+Item3+Item6
+ML3 =~ Item19+Item23+Item21
+
+ML1 ~~ ML2
+ML1 ~~ ML3
+
+ML2 ~~ ML3
+'),
+  '2nd-order-mdl'=list(name='2nd-order-mdl', mdl='
 ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
 ML1 =~ Item4+Item5+Item3+Item6
 ML3 =~ Item19+Item2+Item11+Item16+Item9+Item23+Item21
 
 DTL =~ ML2+ML1+ML3
-'), 'orth-mdl'=list(name='orth-mdl', mdl='
+'),
+  'alt-2nd-order-mdl'=list(name='alt-2nd-order-mdl', mdl='
+ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
+ML1 =~ Item4+Item5+Item3+Item6
+ML3 =~ Item19+Item23+Item21
+
+DTL =~ ML2+ML1+ML3
+'),
+  'bi-factor-mdl'=list(name='bi-factor-mdl', mdl='
+g =~ Item15+Item13+Item17+Item18+Item14+Item12+Item4+Item5+Item3+Item6+Item19+Item2+Item11+Item16+Item9+Item23+Item21
+ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
+ML1 =~ Item4+Item5+Item3+Item6
+ML3 =~ Item19+Item2+Item11+Item16+Item9+Item23+Item21
+
+g ~~ 0*ML1
+g ~~ 0*ML2
+g ~~ 0*ML3
+
+ML1 ~~ 0*ML2
+ML1 ~~ 0*ML3
+
+ML2 ~~ 0*ML3
+'),
+  'alt-bi-factor-mdl'=list(name='alt-bi-factor-mdl', mdl='
+g =~ Item15+Item13+Item17+Item18+Item14+Item12+Item4+Item5+Item3+Item6+Item19+Item23+Item21
+ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
+ML1 =~ Item4+Item5+Item3+Item6
+ML3 =~ Item19+Item23+Item21
+
+g ~~ 0*ML1
+g ~~ 0*ML2
+g ~~ 0*ML3
+
+ML1 ~~ 0*ML2
+ML1 ~~ 0*ML3
+
+ML2 ~~ 0*ML3
+'),
+  'orth-mdl'=list(name='orth-mdl', mdl='
 ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
 ML1 =~ Item4+Item5+Item3+Item6
 ML3 =~ Item19+Item2+Item11+Item16+Item9+Item23+Item21
@@ -133,7 +196,18 @@ ML1 ~~ 0*ML2
 ML1 ~~ 0*ML3
 
 ML2 ~~ 0*ML3
-'))
+'),
+  'alt-orth-mdl'=list(name='alt-orth-mdl', mdl='
+ML2 =~ Item15+Item13+Item17+Item18+Item14+Item12
+ML1 =~ Item4+Item5+Item3+Item6
+ML3 =~ Item19+Item23+Item21
+
+ML1 ~~ 0*ML2
+ML1 ~~ 0*ML3
+
+ML2 ~~ 0*ML3
+')
+)
 cfa_mdls <- lapply(mdls, FUN = function(x) {
   cfa_mdl <- cfa(x$mdl, data=rdat, std.lv=T, estimator="MLR", meanstructure=T)
   print(paste('name: ', x$name))
@@ -164,6 +238,14 @@ write_csv(as.data.frame(rbind('model'=colnames(fits_df), fits_df)), "report/cfa-
 # write summary of comparison for baseline-model
 
 anova(cfa_mdls$`multi-mdl`$cfa, cfa_mdls$`2nd-order-mdl`$cfa)
+anova(cfa_mdls$`multi-mdl`$cfa, cfa_mdls$`bi-factor-mdl`$cfa)
+anova(cfa_mdls$`2nd-order-mdl`$cfa, cfa_mdls$`bi-factor-mdl`$cfa)
+
+
+anova(cfa_mdls$`alt-multi-mdl`$cfa, cfa_mdls$`alt-2nd-order-mdl`$cfa)
+anova(cfa_mdls$`alt-multi-mdl`$cfa, cfa_mdls$`alt-bi-factor-mdl`$cfa)
+anova(cfa_mdls$`alt-2nd-order-mdl`$cfa, cfa_mdls$`alt-bi-factor-mdl`$cfa)
+
 
 ## write cfa-fits details
 wb <- createWorkbook(type="xlsx")
@@ -173,26 +255,3 @@ lapply(mdls, FUN = function(x) {
 xlsx::saveWorkbook(wb, "report/cfa.xlsx")
 
 
-####################################################
-## Saving data for Reliability Analysis and MGCFA ##
-####################################################
-
-library(stringr)
-
-dat <- read_csv('data/responses.csv')
-
-etapa.de.ensino <- unique(unlist(str_split(unique(dat$etapa.de.ensino),';')))
-area.de.conhecimento <- unique(unlist(str_split(unique(dat$area.de.conhecimento),';')))
-formacao.continuada <- unique(unlist(str_split(unique(dat$formacao.continuada),';')))
-
-idx <- (dat$etapa.de.ensino %in% etapa.de.ensino &
-          dat$area.de.conhecimento %in% area.de.conhecimento &
-          dat$formacao.continuada %in% formacao.continuada) 
-
-rdat <- select(dat[idx,], -starts_with("Item"))
-datItem <- dat[,c('ID','Item4','Item5','Item3','Item6',
-                  'Item15','Item13','Item17','Item18','Item14','Item12',
-                  'Item19','Item2','Item11','Item16','Item9','Item23','Item21')]
-rdat <- merge(rdat, datItem)
-
-write_csv(rdat, 'data/responses-cfa.csv')

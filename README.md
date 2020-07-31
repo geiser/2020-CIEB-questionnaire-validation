@@ -604,9 +604,79 @@ Observation:
  One possible explannation is that the options in these itens are more related to the ability to use of technology rather than pedagogical abilities or practices with the use of technology.
  For example, in the Item2, one option indicate that "Além de editores de textos e de apresentações, uso ferramentas como softwares educacionais, jogos, vídeos e outros recursos digitais, e envolvo os alunos em atividades/projetos, individuais ou colaborativos, buscando complementar a aprendizagem de conteúdos trabalhados nas aulas com pesquisas na internet" are related to the ability of the use text editors ans software rather than how to use them in the pedagogical practices. 
  * The same situation happened with the Item16:"Em que medida consigo usar as tecnologias digitais de modo crítico?" that was initially proposed to measure digital citizen, it is aligned to measure professional development because their options are associated with the ability to use digital technology in the professional development.
- 
 
-Detailed result from EFA in the excel-file: [report/efa.xlsx](report/efa.xlsx)
+
+**Alternative EFA** without Item2, Item9, Item11 and Item16 that don't fall in the proper factors
+
+
+```
+Standardized loadings (pattern matrix) based upon correlation matrix
+         ML2   ML1   ML3   h2   u2 com
+Item3  -0.04  0.84 -0.06 0.60 0.40 1.0
+Item4  -0.20  0.90  0.15 0.76 0.24 1.2
+Item5   0.09  0.75 -0.03 0.63 0.37 1.0
+Item6   0.31  0.58 -0.07 0.60 0.40 1.6
+Item12  0.45 -0.02  0.05 0.23 0.77 1.0
+Item13  0.91  0.04 -0.17 0.68 0.32 1.1
+Item14  0.51 -0.01  0.08 0.31 0.69 1.0
+Item15  0.88 -0.09 -0.07 0.61 0.39 1.0
+Item17  0.62  0.00  0.11 0.50 0.50 1.1
+Item18  0.57  0.11  0.09 0.52 0.48 1.1
+Item19  0.03  0.02  0.71 0.55 0.45 1.0
+Item21 -0.05 -0.04  0.81 0.57 0.43 1.0
+Item23  0.22  0.13  0.33 0.36 0.64 2.1
+
+                       ML2  ML1  ML3
+SS loadings           3.01 2.53 1.38
+Proportion Var        0.23 0.19 0.11
+Cumulative Var        0.23 0.43 0.53
+Proportion Explained  0.43 0.37 0.20
+Cumulative Proportion 0.43 0.80 1.00
+
+ With factor correlations of 
+     ML2  ML1  ML3
+ML2 1.00 0.67 0.69
+ML1 0.67 1.00 0.63
+ML3 0.69 0.63 1.00
+
+Mean item complexity =  1.2
+Test of the hypothesis that 3 factors are sufficient.
+
+The degrees of freedom for the null model are  78  and the objective function was  6.15 with Chi Square of  2297.66
+The degrees of freedom for the model are 42  and the objective function was  0.43 
+
+The root mean square of the residuals (RMSR) is  0.04 
+The df corrected root mean square of the residuals is  0.06 
+
+The harmonic number of observations is  380 with the empirical chi square  107.89  with prob <  1e-07 
+The total number of observations was  380  with Likelihood Chi Square =  158.62  with prob <  1.9e-15 
+
+Tucker Lewis Index of factoring reliability =  0.902
+RMSEA index =  0.085  and the 90 % confidence intervals are  0.072 0.1
+BIC =  -90.87
+Fit based upon off diagonal values = 0.99
+Measures of factor score adequacy             
+                                                   ML2  ML1  ML3
+Correlation of (regression) scores with factors   0.94 0.95 0.89
+Multiple R square of scores with factors          0.89 0.89 0.80
+Minimum correlation of possible factor scores     0.78 0.79 0.60
+```
+
+This alternative EFA model presents the following structure diagram: 
+
+![Loading diagram of alternative EFA with n=3 factors](report/loading-diagram-fa3alt.png)
+ 
+ 
+This model presents only one  crossload with the Item23 but it was maintained to maintain 3 factors, and 
+the crossloading fall with less than 0.3 in the factor ML2.
+
+```
+         ML2   ML1   ML3     h2   u2 com
+ Item23  0.22  0.13  0.33   0.36 0.64 2.1
+```
+
+
+> Detailed result from EFA in the excel-file: [report/efa.xlsx](report/efa.xlsx)
 
 
 ### Confirmatory Factor Analysis (CFA)
@@ -762,6 +832,145 @@ Variances:
 ![CFA diagram for multimodal structure](report/cfa-multi-mdl.png)
 
 
+
+#### CFA of the alternative multimodal model (alternative EFA model)
+
+```
+lavaan 0.6-5 ended normally after 19 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                         42
+                                                      
+  Number of observations                           380
+                                                      
+Model Test User Model:
+                                              Standard      Robust
+  Test Statistic                               181.001     160.345
+  Degrees of freedom                                62          62
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  1.129
+    for the Yuan-Bentler correction (Mplus variant) 
+
+Model Test Baseline Model:
+
+  Test statistic                              1912.046    1648.824
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.160
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.935       0.937
+  Tucker-Lewis Index (TLI)                       0.918       0.921
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.939
+  Robust Tucker-Lewis Index (TLI)                            0.923
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -6484.961   -6484.961
+  Scaling correction factor                                  1.077
+      for the MLR correction                                      
+  Loglikelihood unrestricted model (H1)      -6394.460   -6394.460
+  Scaling correction factor                                  1.108
+      for the MLR correction                                      
+                                                                  
+  Akaike (AIC)                               13053.921   13053.921
+  Bayesian (BIC)                             13219.408   13219.408
+  Sample-size adjusted Bayesian (BIC)        13086.151   13086.151
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.071       0.065
+  90 Percent confidence interval - lower         0.059       0.053
+  90 Percent confidence interval - upper         0.083       0.076
+  P-value RMSEA <= 0.05                          0.002       0.019
+                                                                  
+  Robust RMSEA                                               0.069
+  90 Percent confidence interval - lower                     0.056
+  90 Percent confidence interval - upper                     0.082
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.047       0.047
+
+Parameter Estimates:
+
+  Information                                      Observed
+  Observed information based on                     Hessian
+  Standard errors                        Robust.huber.white
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  ML2 =~                                                                
+    Item15            0.659    0.055   11.914    0.000    0.659    0.733
+    Item13            0.714    0.038   18.736    0.000    0.714    0.740
+    Item17            0.768    0.056   13.748    0.000    0.768    0.693
+    Item18            0.832    0.061   13.668    0.000    0.832    0.666
+    Item14            0.492    0.047   10.394    0.000    0.492    0.542
+    Item12            0.483    0.052    9.364    0.000    0.483    0.464
+  ML1 =~                                                                
+    Item4             0.988    0.047   21.014    0.000    0.988    0.809
+    Item5             0.894    0.047   19.061    0.000    0.894    0.771
+    Item3             0.898    0.059   15.191    0.000    0.898    0.712
+    Item6             0.766    0.054   14.059    0.000    0.766    0.714
+  ML3 =~                                                                
+    Item19            0.826    0.056   14.666    0.000    0.826    0.716
+    Item23            0.562    0.048   11.598    0.000    0.562    0.610
+    Item21            0.687    0.054   12.792    0.000    0.687    0.647
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  ML2 ~~                                                                
+    ML1               0.688    0.045   15.408    0.000    0.688    0.688
+  ML1 ~~                                                                
+    ML3               0.679    0.049   13.987    0.000    0.679    0.679
+  ML2 ~~                                                                
+    ML3               0.744    0.046   16.335    0.000    0.744    0.744
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            2.071    0.046   44.910    0.000    2.071    2.304
+   .Item13            2.066    0.049   41.760    0.000    2.066    2.142
+   .Item17            2.424    0.057   42.629    0.000    2.424    2.187
+   .Item18            2.026    0.064   31.600    0.000    2.026    1.621
+   .Item14            2.834    0.047   60.919    0.000    2.834    3.125
+   .Item12            3.426    0.053   64.072    0.000    3.426    3.287
+   .Item4             2.300    0.063   36.743    0.000    2.300    1.885
+   .Item5             2.139    0.060   35.944    0.000    2.139    1.844
+   .Item3             2.532    0.065   39.123    0.000    2.532    2.007
+   .Item6             1.924    0.055   34.977    0.000    1.924    1.794
+   .Item19            2.945    0.059   49.754    0.000    2.945    2.552
+   .Item23            2.937    0.047   62.146    0.000    2.937    3.188
+   .Item21            2.266    0.054   41.610    0.000    2.266    2.135
+    ML2               0.000                               0.000    0.000
+    ML1               0.000                               0.000    0.000
+    ML3               0.000                               0.000    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            0.374    0.045    8.259    0.000    0.374    0.463
+   .Item13            0.420    0.056    7.482    0.000    0.420    0.452
+   .Item17            0.639    0.063   10.174    0.000    0.639    0.520
+   .Item18            0.870    0.088    9.900    0.000    0.870    0.557
+   .Item14            0.581    0.049   11.895    0.000    0.581    0.706
+   .Item12            0.853    0.058   14.687    0.000    0.853    0.785
+   .Item4             0.514    0.060    8.619    0.000    0.514    0.345
+   .Item5             0.547    0.057    9.567    0.000    0.547    0.406
+   .Item3             0.786    0.072   10.858    0.000    0.786    0.494
+   .Item6             0.563    0.070    8.033    0.000    0.563    0.490
+   .Item19            0.650    0.070    9.250    0.000    0.650    0.488
+   .Item23            0.533    0.051   10.448    0.000    0.533    0.628
+   .Item21            0.655    0.069    9.490    0.000    0.655    0.581
+    ML2               1.000                               1.000    1.000
+    ML1               1.000                               1.000    1.000
+    ML3               1.000                               1.000    1.000
+```
+
+![CFA diagram for the alternative multimodal structure](report/cfa-alt-multi-mdl.png)
+
+
 #### CFA of the second order model
 
 ```
@@ -907,6 +1116,488 @@ Variances:
 ```
 
 ![CFA diagram for 2nd order model structure](report/cfa-2nd-order-mdl.png)
+
+
+
+#### CFA of the alternative second order model
+
+```
+lavaan 0.6-5 ended normally after 47 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                         54
+                                                      
+  Number of observations                           380
+                                                      
+Model Test User Model:
+                                              Standard      Robust
+  Test Statistic                               362.546     326.862
+  Degrees of freedom                               116         116
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  1.109
+    for the Yuan-Bentler correction (Mplus variant) 
+
+Model Test Baseline Model:
+
+  Test statistic                              2755.863    2424.527
+  Degrees of freedom                               136         136
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.137
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.906       0.908
+  Tucker-Lewis Index (TLI)                       0.890       0.892
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.910
+  Robust Tucker-Lewis Index (TLI)                            0.895
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -8266.895   -8266.895
+  Scaling correction factor                                  1.076
+      for the MLR correction                                      
+  Loglikelihood unrestricted model (H1)      -8085.622   -8085.622
+  Scaling correction factor                                  1.099
+      for the MLR correction                                      
+                                                                  
+  Akaike (AIC)                               16641.789   16641.789
+  Bayesian (BIC)                             16854.559   16854.559
+  Sample-size adjusted Bayesian (BIC)        16683.227   16683.227
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.075       0.069
+  90 Percent confidence interval - lower         0.066       0.061
+  90 Percent confidence interval - upper         0.084       0.078
+  P-value RMSEA <= 0.05                          0.000       0.000
+                                                                  
+  Robust RMSEA                                               0.073
+  90 Percent confidence interval - lower                     0.064
+  90 Percent confidence interval - upper                     0.082
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.051       0.051
+
+Parameter Estimates:
+
+  Information                                      Observed
+  Observed information based on                     Hessian
+  Standard errors                        Robust.huber.white
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  ML2 =~                                                                
+    Item15            0.369    0.046    7.953    0.000    0.652    0.725
+    Item13            0.407    0.043    9.546    0.000    0.718    0.745
+    Item17            0.433    0.047    9.265    0.000    0.764    0.689
+    Item18            0.477    0.050    9.481    0.000    0.842    0.674
+    Item14            0.277    0.036    7.732    0.000    0.489    0.539
+    Item12            0.275    0.036    7.567    0.000    0.485    0.465
+  ML1 =~                                                                
+    Item4             0.539    0.056    9.651    0.000    0.980    0.803
+    Item5             0.491    0.048   10.301    0.000    0.892    0.769
+    Item3             0.509    0.055    9.253    0.000    0.926    0.734
+    Item6             0.413    0.041   10.054    0.000    0.751    0.701
+  ML3 =~                                                                
+    Item19            0.244    0.082    2.985    0.003    0.776    0.673
+    Item2             0.227    0.072    3.148    0.002    0.722    0.726
+    Item11            0.197    0.064    3.088    0.002    0.627    0.722
+    Item16            0.142    0.048    2.958    0.003    0.453    0.464
+    Item9             0.224    0.074    3.045    0.002    0.714    0.675
+    Item23            0.173    0.057    3.054    0.002    0.550    0.597
+    Item21            0.186    0.063    2.936    0.003    0.592    0.557
+  DTL =~                                                                
+    ML2               1.453    0.208    6.999    0.000    0.824    0.824
+    ML1               1.519    0.193    7.866    0.000    0.835    0.835
+    ML3               3.021    1.078    2.802    0.005    0.949    0.949
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            2.071    0.046   44.910    0.000    2.071    2.304
+   .Item13            2.066    0.049   41.760    0.000    2.066    2.142
+   .Item17            2.424    0.057   42.629    0.000    2.424    2.187
+   .Item18            2.026    0.064   31.600    0.000    2.026    1.621
+   .Item14            2.834    0.047   60.919    0.000    2.834    3.125
+   .Item12            3.426    0.053   64.072    0.000    3.426    3.287
+   .Item4             2.300    0.063   36.743    0.000    2.300    1.885
+   .Item5             2.139    0.060   35.944    0.000    2.139    1.844
+   .Item3             2.532    0.065   39.123    0.000    2.532    2.007
+   .Item6             1.924    0.055   34.977    0.000    1.924    1.794
+   .Item19            2.945    0.059   49.754    0.000    2.945    2.552
+   .Item2             2.779    0.051   54.500    0.000    2.779    2.796
+   .Item11            2.695    0.045   60.488    0.000    2.695    3.103
+   .Item16            3.803    0.050   75.927    0.000    3.803    3.895
+   .Item9             2.771    0.054   51.073    0.000    2.771    2.620
+   .Item23            2.937    0.047   62.146    0.000    2.937    3.188
+   .Item21            2.266    0.054   41.610    0.000    2.266    2.135
+   .ML2               0.000                               0.000    0.000
+   .ML1               0.000                               0.000    0.000
+   .ML3               0.000                               0.000    0.000
+    DTL               0.000                               0.000    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            0.384    0.046    8.271    0.000    0.384    0.475
+   .Item13            0.414    0.056    7.390    0.000    0.414    0.446
+   .Item17            0.645    0.063   10.184    0.000    0.645    0.525
+   .Item18            0.853    0.086    9.904    0.000    0.853    0.546
+   .Item14            0.583    0.049   11.892    0.000    0.583    0.709
+   .Item12            0.851    0.058   14.668    0.000    0.851    0.783
+   .Item4             0.528    0.058    9.151    0.000    0.528    0.354
+   .Item5             0.550    0.056    9.824    0.000    0.550    0.409
+   .Item3             0.734    0.071   10.401    0.000    0.734    0.461
+   .Item6             0.585    0.069    8.465    0.000    0.585    0.509
+   .Item19            0.728    0.056   12.922    0.000    0.728    0.547
+   .Item2             0.467    0.043   10.783    0.000    0.467    0.473
+   .Item11            0.361    0.034   10.718    0.000    0.361    0.479
+   .Item16            0.748    0.058   12.867    0.000    0.748    0.785
+   .Item9             0.609    0.055   11.000    0.000    0.609    0.545
+   .Item23            0.546    0.051   10.816    0.000    0.546    0.644
+   .Item21            0.777    0.064   12.167    0.000    0.777    0.689
+   .ML2               1.000                               0.321    0.321
+   .ML1               1.000                               0.302    0.302
+   .ML3               1.000                               0.099    0.099
+    DTL               1.000                               1.000    1.000
+```
+
+![CFA diagram for the alternative 2nd order model structure](report/cfa-alt-2nd-order-mdl.png)
+
+
+#### CFA of the bi-factor model
+
+
+```
+lavaan 0.6-5 ended normally after 30 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                         68
+                                                      
+  Number of observations                           380
+                                                      
+Model Test User Model:
+                                              Standard      Robust
+  Test Statistic                               297.261     275.320
+  Degrees of freedom                               102         102
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  1.080
+    for the Yuan-Bentler correction (Mplus variant) 
+
+Model Test Baseline Model:
+
+  Test statistic                              2755.863    2424.527
+  Degrees of freedom                               136         136
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.137
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.925       0.924
+  Tucker-Lewis Index (TLI)                       0.901       0.899
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.928
+  Robust Tucker-Lewis Index (TLI)                            0.904
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -8234.252   -8234.252
+  Scaling correction factor                                  1.127
+      for the MLR correction                                      
+  Loglikelihood unrestricted model (H1)      -8085.622   -8085.622
+  Scaling correction factor                                  1.099
+      for the MLR correction                                      
+                                                                  
+  Akaike (AIC)                               16604.504   16604.504
+  Bayesian (BIC)                             16872.436   16872.436
+  Sample-size adjusted Bayesian (BIC)        16656.685   16656.685
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.071       0.067
+  90 Percent confidence interval - lower         0.062       0.058
+  90 Percent confidence interval - upper         0.080       0.076
+  P-value RMSEA <= 0.05                          0.000       0.001
+                                                                  
+  Robust RMSEA                                               0.069
+  90 Percent confidence interval - lower                     0.060
+  90 Percent confidence interval - upper                     0.079
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.047       0.047
+
+Parameter Estimates:
+
+  Information                                      Observed
+  Observed information based on                     Hessian
+  Standard errors                        Robust.huber.white
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  g =~                                                                  
+    Item15            0.460    0.061    7.499    0.000    0.460    0.512
+    Item13            0.566    0.049   11.483    0.000    0.566    0.587
+    Item17            0.632    0.065    9.726    0.000    0.632    0.570
+    Item18            0.774    0.068   11.450    0.000    0.774    0.619
+    Item14            0.383    0.053    7.250    0.000    0.383    0.422
+    Item12            0.395    0.057    6.926    0.000    0.395    0.379
+    Item4             0.769    0.053   14.569    0.000    0.769    0.630
+    Item5             0.748    0.054   13.963    0.000    0.748    0.644
+    Item3             0.823    0.060   13.711    0.000    0.823    0.653
+    Item6             0.634    0.059   10.757    0.000    0.634    0.592
+    Item19            0.681    0.060   11.319    0.000    0.681    0.590
+    Item2             0.749    0.047   15.902    0.000    0.749    0.753
+    Item11            0.630    0.051   12.405    0.000    0.630    0.726
+    Item16            0.425    0.048    8.762    0.000    0.425    0.435
+    Item9             0.680    0.047   14.565    0.000    0.680    0.643
+    Item23            0.530    0.050   10.704    0.000    0.530    0.575
+    Item21            0.529    0.060    8.811    0.000    0.529    0.498
+  ML2 =~                                                                
+    Item15            0.557    0.061    9.154    0.000    0.557    0.619
+    Item13            0.429    0.069    6.250    0.000    0.429    0.445
+    Item17            0.401    0.082    4.891    0.000    0.401    0.362
+    Item18            0.300    0.096    3.130    0.002    0.300    0.240
+    Item14            0.317    0.075    4.226    0.000    0.317    0.350
+    Item12            0.287    0.084    3.435    0.001    0.287    0.275
+  ML1 =~                                                                
+    Item4             0.691    0.089    7.728    0.000    0.691    0.567
+    Item5             0.451    0.084    5.401    0.000    0.451    0.389
+    Item3             0.420    0.089    4.747    0.000    0.420    0.333
+    Item6             0.382    0.077    4.989    0.000    0.382    0.356
+  ML3 =~                                                                
+    Item19            0.814    0.399    2.042    0.041    0.814    0.705
+    Item2             0.005    0.072    0.064    0.949    0.005    0.005
+    Item11            0.029    0.054    0.541    0.589    0.029    0.033
+    Item16            0.127    0.086    1.474    0.140    0.127    0.130
+    Item9             0.183    0.083    2.190    0.029    0.183    0.173
+    Item23            0.088    0.106    0.832    0.405    0.088    0.095
+    Item21            0.331    0.166    1.990    0.047    0.331    0.312
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  g ~~                                                                  
+    ML1               0.000                               0.000    0.000
+    ML2               0.000                               0.000    0.000
+    ML3               0.000                               0.000    0.000
+  ML2 ~~                                                                
+    ML1               0.000                               0.000    0.000
+  ML1 ~~                                                                
+    ML3               0.000                               0.000    0.000
+  ML2 ~~                                                                
+    ML3               0.000                               0.000    0.000
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            2.071    0.046   44.910    0.000    2.071    2.304
+   .Item13            2.066    0.049   41.760    0.000    2.066    2.142
+   .Item17            2.424    0.057   42.629    0.000    2.424    2.187
+   .Item18            2.026    0.064   31.600    0.000    2.026    1.621
+   .Item14            2.834    0.047   60.919    0.000    2.834    3.125
+   .Item12            3.426    0.053   64.072    0.000    3.426    3.287
+   .Item4             2.300    0.063   36.743    0.000    2.300    1.885
+   .Item5             2.139    0.060   35.944    0.000    2.139    1.844
+   .Item3             2.532    0.065   39.123    0.000    2.532    2.007
+   .Item6             1.924    0.055   34.977    0.000    1.924    1.794
+   .Item19            2.945    0.059   49.754    0.000    2.945    2.552
+   .Item2             2.779    0.051   54.500    0.000    2.779    2.796
+   .Item11            2.695    0.045   60.488    0.000    2.695    3.103
+   .Item16            3.803    0.050   75.927    0.000    3.803    3.895
+   .Item9             2.771    0.054   51.073    0.000    2.771    2.620
+   .Item23            2.937    0.047   62.146    0.000    2.937    3.188
+   .Item21            2.266    0.054   41.610    0.000    2.266    2.135
+    g                 0.000                               0.000    0.000
+    ML2               0.000                               0.000    0.000
+    ML1               0.000                               0.000    0.000
+    ML3               0.000                               0.000    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            0.286    0.060    4.809    0.000    0.286    0.354
+   .Item13            0.425    0.062    6.843    0.000    0.425    0.457
+   .Item17            0.668    0.065   10.320    0.000    0.668    0.544
+   .Item18            0.873    0.083   10.511    0.000    0.873    0.559
+   .Item14            0.575    0.049   11.626    0.000    0.575    0.699
+   .Item12            0.848    0.059   14.360    0.000    0.848    0.780
+   .Item4             0.419    0.099    4.255    0.000    0.419    0.282
+   .Item5             0.583    0.064    9.164    0.000    0.583    0.433
+   .Item3             0.737    0.067   11.011    0.000    0.737    0.463
+   .Item6             0.601    0.069    8.735    0.000    0.601    0.523
+   .Item19            0.205    0.622    0.330    0.741    0.205    0.154
+   .Item2             0.427    0.046    9.318    0.000    0.427    0.433
+   .Item11            0.356    0.036    9.967    0.000    0.356    0.472
+   .Item16            0.757    0.059   12.786    0.000    0.757    0.794
+   .Item9             0.623    0.058   10.793    0.000    0.623    0.557
+   .Item23            0.560    0.051   11.043    0.000    0.560    0.660
+   .Item21            0.738    0.104    7.100    0.000    0.738    0.655
+    g                 1.000                               1.000    1.000
+    ML2               1.000                               1.000    1.000
+    ML1               1.000                               1.000    1.000
+    ML3               1.000                               1.000    1.000
+```
+
+![CFA diagram for bi-factor model structure](report/cfa-bi-factor-mdl.png)
+
+
+#### CFA of the alternative bi-factor model
+
+```
+lavaan 0.6-5 ended normally after 39 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                         52
+                                                      
+  Number of observations                           380
+                                                      
+Model Test User Model:
+                                              Standard      Robust
+  Test Statistic                                94.337      86.785
+  Degrees of freedom                                52          52
+  P-value (Chi-square)                           0.000       0.002
+  Scaling correction factor                                  1.087
+    for the Yuan-Bentler correction (Mplus variant) 
+
+Model Test Baseline Model:
+
+  Test statistic                              1912.046    1648.824
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.160
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.977       0.978
+  Tucker-Lewis Index (TLI)                       0.965       0.967
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.979
+  Robust Tucker-Lewis Index (TLI)                            0.969
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -6441.628   -6441.628
+  Scaling correction factor                                  1.129
+      for the MLR correction                                      
+  Loglikelihood unrestricted model (H1)      -6394.460   -6394.460
+  Scaling correction factor                                  1.108
+      for the MLR correction                                      
+                                                                  
+  Akaike (AIC)                               12987.257   12987.257
+  Bayesian (BIC)                             13192.146   13192.146
+  Sample-size adjusted Bayesian (BIC)        13027.160   13027.160
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.046       0.042
+  90 Percent confidence interval - lower         0.031       0.026
+  90 Percent confidence interval - upper         0.061       0.057
+  P-value RMSEA <= 0.05                          0.642       0.807
+                                                                  
+  Robust RMSEA                                               0.044
+  90 Percent confidence interval - lower                     0.027
+  90 Percent confidence interval - upper                     0.060
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.034       0.034
+
+Parameter Estimates:
+
+  Information                                      Observed
+  Observed information based on                     Hessian
+  Standard errors                        Robust.huber.white
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  g =~                                                                  
+    Item15            0.645    0.056   11.520    0.000    0.645    0.718
+    Item13            0.704    0.039   18.160    0.000    0.704    0.731
+    Item17            0.794    0.055   14.480    0.000    0.794    0.717
+    Item18            0.846    0.061   13.772    0.000    0.846    0.677
+    Item14            0.487    0.055    8.795    0.000    0.487    0.537
+    Item12            0.479    0.069    6.902    0.000    0.479    0.460
+    Item4             0.645    0.060   10.757    0.000    0.645    0.528
+    Item5             0.659    0.054   12.295    0.000    0.659    0.568
+    Item3             0.601    0.066    9.110    0.000    0.601    0.477
+    Item6             0.647    0.056   11.543    0.000    0.647    0.604
+    Item19            0.614    0.054   11.318    0.000    0.614    0.532
+    Item23            0.486    0.047   10.312    0.000    0.486    0.527
+    Item21            0.498    0.056    8.908    0.000    0.498    0.469
+  ML2 =~                                                                
+    Item15            0.063    0.099    0.632    0.527    0.063    0.070
+    Item13           -0.016    0.081   -0.198    0.843   -0.016   -0.017
+    Item17           -0.245    0.094   -2.610    0.009   -0.245   -0.221
+    Item18           -0.140    0.086   -1.631    0.103   -0.140   -0.112
+    Item14            0.430    0.165    2.602    0.009    0.430    0.475
+    Item12            0.561    0.166    3.389    0.001    0.561    0.538
+  ML1 =~                                                                
+    Item4             0.794    0.070   11.308    0.000    0.794    0.651
+    Item5             0.583    0.060    9.702    0.000    0.583    0.502
+    Item3             0.688    0.074    9.322    0.000    0.688    0.545
+    Item6             0.408    0.063    6.494    0.000    0.408    0.381
+  ML3 =~                                                                
+    Item19            0.601    0.136    4.402    0.000    0.601    0.521
+    Item23            0.212    0.061    3.448    0.001    0.212    0.230
+    Item21            0.540    0.124    4.350    0.000    0.540    0.509
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  g ~~                                                                  
+    ML1               0.000                               0.000    0.000
+    ML2               0.000                               0.000    0.000
+    ML3               0.000                               0.000    0.000
+  ML2 ~~                                                                
+    ML1               0.000                               0.000    0.000
+  ML1 ~~                                                                
+    ML3               0.000                               0.000    0.000
+  ML2 ~~                                                                
+    ML3               0.000                               0.000    0.000
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            2.071    0.046   44.910    0.000    2.071    2.304
+   .Item13            2.066    0.049   41.760    0.000    2.066    2.142
+   .Item17            2.424    0.057   42.629    0.000    2.424    2.187
+   .Item18            2.026    0.064   31.600    0.000    2.026    1.621
+   .Item14            2.834    0.047   60.919    0.000    2.834    3.125
+   .Item12            3.426    0.053   64.072    0.000    3.426    3.287
+   .Item4             2.300    0.063   36.743    0.000    2.300    1.885
+   .Item5             2.139    0.060   35.944    0.000    2.139    1.844
+   .Item3             2.532    0.065   39.123    0.000    2.532    2.007
+   .Item6             1.924    0.055   34.977    0.000    1.924    1.794
+   .Item19            2.945    0.059   49.754    0.000    2.945    2.552
+   .Item23            2.937    0.047   62.146    0.000    2.937    3.188
+   .Item21            2.266    0.054   41.610    0.000    2.266    2.135
+    g                 0.000                               0.000    0.000
+    ML2               0.000                               0.000    0.000
+    ML1               0.000                               0.000    0.000
+    ML3               0.000                               0.000    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            0.387    0.044    8.817    0.000    0.387    0.480
+   .Item13            0.433    0.057    7.645    0.000    0.433    0.466
+   .Item17            0.538    0.064    8.442    0.000    0.538    0.438
+   .Item18            0.827    0.090    9.170    0.000    0.827    0.529
+   .Item14            0.400    0.138    2.892    0.004    0.400    0.486
+   .Item12            0.542    0.208    2.607    0.009    0.542    0.499
+   .Item4             0.443    0.078    5.648    0.000    0.443    0.297
+   .Item5             0.572    0.061    9.346    0.000    0.572    0.425
+   .Item3             0.756    0.078    9.736    0.000    0.756    0.475
+   .Item6             0.564    0.068    8.301    0.000    0.564    0.491
+   .Item19            0.593    0.156    3.801    0.000    0.593    0.445
+   .Item23            0.568    0.048   11.946    0.000    0.568    0.669
+   .Item21            0.587    0.129    4.545    0.000    0.587    0.521
+    g                 1.000                               1.000    1.000
+    ML2               1.000                               1.000    1.000
+    ML1               1.000                               1.000    1.000
+    ML3               1.000                               1.000    1.000
+```
+
+![CFA diagram for the alternative bi-factor model structure](report/cfa-alt-bi-factor-mdl.png)
+
 
 #### CFA of the orthogonal model
 
@@ -1058,83 +1749,539 @@ Variances:
 
 ![CFA diagram for orthogonal model structure](report/cfa-orth-mdl.png)
 
-Summary of CFA - model fit measurements
+
+#### CFA of the alternative orthogonal model
+
+```
+lavaan 0.6-5 ended normally after 17 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of free parameters                         39
+                                                      
+  Number of observations                           380
+                                                      
+Model Test User Model:
+                                              Standard      Robust
+  Test Statistic                               506.720     451.195
+  Degrees of freedom                                65          65
+  P-value (Chi-square)                           0.000       0.000
+  Scaling correction factor                                  1.123
+    for the Yuan-Bentler correction (Mplus variant) 
+
+Model Test Baseline Model:
+
+  Test statistic                              1912.046    1648.824
+  Degrees of freedom                                78          78
+  P-value                                        0.000       0.000
+  Scaling correction factor                                  1.160
+
+User Model versus Baseline Model:
+
+  Comparative Fit Index (CFI)                    0.759       0.754
+  Tucker-Lewis Index (TLI)                       0.711       0.705
+                                                                  
+  Robust Comparative Fit Index (CFI)                         0.762
+  Robust Tucker-Lewis Index (TLI)                            0.714
+
+Loglikelihood and Information Criteria:
+
+  Loglikelihood user model (H0)              -6647.820   -6647.820
+  Scaling correction factor                                  1.083
+      for the MLR correction                                      
+  Loglikelihood unrestricted model (H1)      -6394.460   -6394.460
+  Scaling correction factor                                  1.108
+      for the MLR correction                                      
+                                                                  
+  Akaike (AIC)                               13373.640   13373.640
+  Bayesian (BIC)                             13527.306   13527.306
+  Sample-size adjusted Bayesian (BIC)        13403.567   13403.567
+
+Root Mean Square Error of Approximation:
+
+  RMSEA                                          0.134       0.125
+  90 Percent confidence interval - lower         0.123       0.115
+  90 Percent confidence interval - upper         0.145       0.135
+  P-value RMSEA <= 0.05                          0.000       0.000
+                                                                  
+  Robust RMSEA                                               0.133
+  90 Percent confidence interval - lower                     0.121
+  90 Percent confidence interval - upper                     0.144
+
+Standardized Root Mean Square Residual:
+
+  SRMR                                           0.245       0.245
+
+Parameter Estimates:
+
+  Information                                      Observed
+  Observed information based on                     Hessian
+  Standard errors                        Robust.huber.white
+
+Latent Variables:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  ML2 =~                                                                
+    Item15            0.686    0.056   12.222    0.000    0.686    0.763
+    Item13            0.729    0.040   18.383    0.000    0.729    0.756
+    Item17            0.748    0.059   12.762    0.000    0.748    0.675
+    Item18            0.794    0.064   12.370    0.000    0.794    0.635
+    Item14            0.488    0.049    9.919    0.000    0.488    0.538
+    Item12            0.480    0.052    9.150    0.000    0.480    0.460
+  ML1 =~                                                                
+    Item4             1.011    0.049   20.520    0.000    1.011    0.828
+    Item5             0.884    0.050   17.731    0.000    0.884    0.762
+    Item3             0.911    0.060   15.274    0.000    0.911    0.723
+    Item6             0.739    0.056   13.190    0.000    0.739    0.689
+  ML3 =~                                                                
+    Item19            0.868    0.073   11.922    0.000    0.868    0.752
+    Item23            0.490    0.052    9.458    0.000    0.490    0.532
+    Item21            0.727    0.064   11.322    0.000    0.727    0.685
+
+Covariances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+  ML2 ~~                                                                
+    ML1               0.000                               0.000    0.000
+  ML1 ~~                                                                
+    ML3               0.000                               0.000    0.000
+  ML2 ~~                                                                
+    ML3               0.000                               0.000    0.000
+
+Intercepts:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            2.071    0.046   44.910    0.000    2.071    2.304
+   .Item13            2.066    0.049   41.760    0.000    2.066    2.142
+   .Item17            2.424    0.057   42.629    0.000    2.424    2.187
+   .Item18            2.026    0.064   31.600    0.000    2.026    1.621
+   .Item14            2.834    0.047   60.919    0.000    2.834    3.125
+   .Item12            3.426    0.053   64.072    0.000    3.426    3.287
+   .Item4             2.300    0.063   36.743    0.000    2.300    1.885
+   .Item5             2.139    0.060   35.944    0.000    2.139    1.844
+   .Item3             2.532    0.065   39.123    0.000    2.532    2.007
+   .Item6             1.924    0.055   34.977    0.000    1.924    1.794
+   .Item19            2.945    0.059   49.754    0.000    2.945    2.552
+   .Item23            2.937    0.047   62.146    0.000    2.937    3.188
+   .Item21            2.266    0.054   41.610    0.000    2.266    2.135
+    ML2               0.000                               0.000    0.000
+    ML1               0.000                               0.000    0.000
+    ML3               0.000                               0.000    0.000
+
+Variances:
+                   Estimate  Std.Err  z-value  P(>|z|)   Std.lv  Std.all
+   .Item15            0.338    0.048    7.087    0.000    0.338    0.418
+   .Item13            0.399    0.058    6.886    0.000    0.399    0.429
+   .Item17            0.669    0.068    9.864    0.000    0.669    0.545
+   .Item18            0.932    0.094    9.889    0.000    0.932    0.596
+   .Item14            0.584    0.049   11.945    0.000    0.584    0.710
+   .Item12            0.856    0.059   14.457    0.000    0.856    0.788
+   .Item4             0.467    0.066    7.125    0.000    0.467    0.314
+   .Item5             0.565    0.064    8.820    0.000    0.565    0.420
+   .Item3             0.760    0.074   10.280    0.000    0.760    0.478
+   .Item6             0.603    0.070    8.679    0.000    0.603    0.525
+   .Item19            0.578    0.109    5.305    0.000    0.578    0.434
+   .Item23            0.608    0.058   10.480    0.000    0.608    0.717
+   .Item21            0.599    0.087    6.853    0.000    0.599    0.531
+    ML2               1.000                               1.000    1.000
+    ML1               1.000                               1.000    1.000
+    ML3               1.000                               1.000    1.000
+```
+
+
+![CFA diagram for the alternative orthogonal model structure](report/cfa-alt-orth-mdl.png)
+
+
+
+#### Summary of CFA - model fit measurements
 
 
 ```
-model                          multi-mdl     2nd-order-mdl     orth-mdl          
-chisq                           362.546       362.546           813.081           
-df                              116           116               119               
-chisq.scaled                    326.862       326.862           730.882           
-df.scaled                       116           116               119               
-cfi                             0.906         0.906             0.735             
-tli                             0.890         0.890             0.697             
-cfi.scaled                      0.908         0.908             0.733             
-tli.scaled                      0.892         0.892             0.694             
-cfi.robust                      0.910         0.910             0.738             
-tli.robust                      0.895         0.895             0.701             
-rmsea                           0.075         0.075             0.124             
-rmsea.ci.lower                  0.066         0.066             0.116             
-rmsea.ci.upper                  0.084         0.084             0.132             
-rmsea.scaled                    0.069         0.069             0.116             
-rmsea.ci.lower.scaled           0.061         0.061             0.109             
-rmsea.ci.upper.scaled           0.078         0.078             0.124             
-rmsea.robust                    0.073         0.073             0.123             
-rmsea.ci.lower.robust           0.064         0.064             0.114             
-rmsea.ci.upper.robust           0.082         0.082             0.131             
-agfi                            0.964         0.964             0.946             
-cfi.obs                         NA            NA                unacceptable fit  
-tli.obs                         NA            NA                unacceptable fit  
-rmsea.obs                       NA            NA                poor fit          
-rmsea.pvalue.obs                NA            NA                NA                
+model                         multi-mdl   alt-multi-mdl   2nd-order-mdl   alt-2nd-order-mdl   bi-factor-mdl   alt-bi-factor-mdl   orth-mdl        alt-orth-mdl    
+chisq                         362.546     181.001         362.546         181.001             297.261         94.337              813.081         506.720         
+df                            116         62              116             62                  102             52                  119             65             
+chisq.scaled                  326.862     160.345         326.862         160.345             275.320         86.785              730.882         451.195         
+df.scaled                     116         62              116             62                  102             52                  119             65             
+cfi                           0.906       0.935           0.906           0.935               0.925           0.977               0.735           0.759           
+tli                           0.890       0.918           0.890           0.918               0.901           0.965               0.697           0.711           
+cfi.scaled                    0.908       0.937           0.908           0.937               0.924           0.978               0.733           0.754           
+tli.scaled                    0.892       0.921           0.892           0.921               0.899           0.967               0.694           0.705           
+cfi.robust                    0.910       0.939           0.910           0.939               0.928           0.979               0.738           0.762           
+tli.robust                    0.895       0.923           0.895           0.923               0.904           0.969               0.701           0.714           
+rmsea                         0.075       0.071           0.075           0.071               0.071           0.046               0.124           0.134           
+rmsea.ci.lower                0.066       0.059           0.066           0.059               0.062           0.031               0.116           0.123           
+rmsea.ci.upper                0.084       0.083           0.084           0.083               0.080           0.061               0.132           0.145           
+rmsea.pvalue                  0.000       0.002           0.000           0.002               0.000           0.642               0.000           0.000           
+rmsea.scaled                  0.069       0.065           0.069           0.065               0.067           0.042               0.116           0.125           
+rmsea.ci.lower.scaled         0.061       0.053           0.061           0.053               0.058           0.026               0.109           0.115           
+rmsea.ci.upper.scaled         0.078       0.076           0.078           0.076               0.076           0.057               0.124           0.135           
+rmsea.pvalue.scaled           0.000       0.019           0.000           0.019               0.001           0.807               0.000           0.000           
+rmsea.robust                  0.073       0.069           0.073           0.069               0.069           0.044               0.123           0.133           
+rmsea.ci.lower.robust         0.064       0.056           0.064           0.056               0.060           0.027               0.114           0.121           
+rmsea.ci.upper.robust         0.082       0.082           0.082           0.082               0.079           0.060               0.131           0.144           
+cfi.obs                       NA          NA              NA              NA                  NA              NA                  unacceptable    unacceptable fit
+tli.obs                       NA          NA              NA              NA                  NA              NA                  unacceptable    unacceptable fit
+rmsea.obs                     NA          NA              NA              NA                  NA              NA                  poor fit        poor fit        
+rmsea.pvalue.obs              NA          NA              NA              NA                  NA              close fit           NA              NA                
 ```
 
 Available also as CSV-file in: [report/cfa-summary.csv](report/cfa-summary.csv)
 
 #### Definition of the final model
 
-Based on the model fit measurements, the multimodal and 2nd-order model both are adequate for the analysis.
-As conclusion, we chosse the ```2nd-order-model``` that also fits with the initial theoretical proposition used to elaborate the first version of the questionnaire.
-
-There is not significant difference between 2nd-order-model and multi-mdl
+* Comparing the CFA models with items that fall inadequate latent factors 
 
 ```r
 anova(cfa_mdls$`multi-mdl`$cfa, cfa_mdls$`2nd-order-mdl`$cfa)
 ```
 
 ```
-Scaled Chi-Squared Difference Test (method = “satorra.bentler.2001”)
-                        Df   AIC   BIC  Chisq  Chisq diff Df diff Pr(>Chisq)
+                              Df   AIC   BIC  Chisq  Chisq diff Df diff Pr(>Chisq)
 cfa_mdls$`multi-mdl`$cfa     116 16642 16855 362.55                               
 cfa_mdls$`2nd-order-mdl`$cfa 116 16642 16855 362.55 -4.0878e-09       0   
 ```
 
 
-Detailed information of CFA in the excel-file: [report/cfa.xlsx](report/cfa.xlsx)
+```r
+anova(cfa_mdls$`multi-mdl`$cfa, cfa_mdls$`bi-factor-mdl`$cfa)
+```
+```
+                              Df   AIC   BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+cfa_mdls$`bi-factor-mdl`$cfa 102 16604 16872 297.26                                  
+cfa_mdls$`multi-mdl`$cfa     116 16642 16855 362.55      49.31      14  7.963e-06 ***
+```
+
+```r
+anova(cfa_mdls$`2nd-order-mdl`$cfa, cfa_mdls$`bi-factor-mdl`$cfa)
+```
+```
+                              Df   AIC   BIC  Chisq Chisq diff Df diff Pr(>Chisq)    
+cfa_mdls$`bi-factor-mdl`$cfa 102 16604 16872 297.26                                  
+cfa_mdls$`2nd-order-mdl`$cfa 116 16642 16855 362.55      49.31      14  7.963e-06 ***
+```
+
+
+* Comparing the alternative CFA models - models in which we removed the items that fall inadequate latent factors
+
+```r
+anova(cfa_mdls$`alt-multi-mdl`$cfa, cfa_mdls$`alt-2nd-order-mdl`$cfa)
+```
+                                 Df   AIC   BIC Chisq Chisq diff Df diff Pr(>Chisq)
+cfa_mdls$`alt-multi-mdl`$cfa     62 13054 13219   181                              
+cfa_mdls$`alt-2nd-order-mdl`$cfa 62 13054 13219   181 1.5464e-09       0           
+```
+
+```
+
+```r
+anova(cfa_mdls$`alt-multi-mdl`$cfa, cfa_mdls$`alt-bi-factor-mdl`$cfa)
+```
+```
+                                 Df   AIC   BIC   Chisq Chisq diff Df diff Pr(>Chisq)    
+cfa_mdls$`alt-bi-factor-mdl`$cfa 52 12987 13192  94.337                                  
+cfa_mdls$`alt-multi-mdl`$cfa     62 13054 13219 181.001     64.377      10  5.332e-10 ***
+```
+
+```r
+anova(cfa_mdls$`alt-2nd-order-mdl`$cfa, cfa_mdls$`alt-bi-factor-mdl`$cfa)
+```
+```
+                                 Df   AIC   BIC   Chisq Chisq diff Df diff Pr(>Chisq)    
+cfa_mdls$`alt-bi-factor-mdl`$cfa 52 12987 13192  94.337                                  
+cfa_mdls$`alt-2nd-order-mdl`$cfa 62 13054 13219 181.001     64.377      10  5.331e-10 ***
+```
+
+> Based on the model fit measurements, the multimodal, bi-factorial and 2nd-order model both are adequate for the analysis.
+> Also, the alternative multimodal, bi-factorial and 2nd-order model both are adequate for the analysis
+> RMSEA with 0.044 in the alternative bi-factorial model suggests a close fit for this model,
+> but the Item13, Item17 and Item18 negatively load in the factor ML2.   
+
+
+
+> Detailed information of CFA in the excel-file: [report/cfa.xlsx](report/cfa.xlsx)
+
+
+
+### Calculate McDonald's Omega
+
+####  Omega with all the original items
+
+
+```
+Alpha:                 0.93 
+G.6:                   0.94 
+Omega Hierarchical:    0.75 
+Omega H asymptotic:    0.8 
+Omega Total            0.94 
+
+Schmid Leiman Factor loadings greater than  0.2 
+          g   F1*   F2*   F3*   h2   u2   p2
+Item1  0.57  0.28  0.22       0.44 0.56 0.72
+Item2  0.63  0.32  0.23       0.56 0.44 0.71
+Item3  0.58  0.49             0.57 0.43 0.58
+Item4  0.61  0.46             0.59 0.41 0.64
+Item5  0.60  0.46             0.58 0.42 0.62
+Item6  0.59  0.37        0.24 0.55 0.45 0.64
+Item7  0.60  0.26             0.46 0.54 0.79
+Item8  0.60  0.24             0.46 0.54 0.79
+Item9  0.60  0.20  0.26       0.47 0.53 0.77
+Item10 0.55  0.23             0.38 0.62 0.78
+Item11 0.61  0.21  0.22       0.46 0.54 0.79
+Item12 0.39              0.22 0.23 0.77 0.66
+Item13 0.56              0.49 0.55 0.45 0.56
+Item14 0.44              0.26 0.29 0.71 0.65
+Item15 0.54              0.55 0.59 0.41 0.49
+Item16 0.42        0.30       0.27 0.73 0.65
+Item17 0.55              0.39 0.47 0.53 0.65
+Item18 0.57              0.31 0.44 0.56 0.73
+Item19 0.59        0.45       0.54 0.46 0.63
+Item20 0.58                   0.43 0.57 0.79
+Item21 0.50        0.34       0.37 0.63 0.68
+Item22 0.56        0.33       0.45 0.55 0.70
+Item23 0.53        0.27       0.37 0.63 0.75
+
+With eigenvalues of:
+   g  F1*  F2*  F3* 
+7.15 1.28 0.96 1.13 
+
+general/max  5.58   max/min =   1.34
+mean percent general =  0.69    with sd =  0.08 and cv of  0.12 
+Explained Common Variance of the general factor =  0.68 
+
+The degrees of freedom are 187  and the fit is  1.32 
+The number of observations was  380  with Chi Square =  484.84  with prob <  2.6e-28
+The root mean square of the residuals is  0.04 
+The df corrected root mean square of the residuals is  0.05
+RMSEA index =  0.065  and the 10 % confidence intervals are  0.058 0.072
+BIC =  -625.97
+
+Compare this with the adequacy of just a general factor and no group factors
+The degrees of freedom for just the general factor are 230  and the fit is  2.5 
+The number of observations was  380  with Chi Square =  926.27  with prob <  3e-84
+The root mean square of the residuals is  0.1 
+The df corrected root mean square of the residuals is  0.1 
+
+RMSEA index =  0.089  and the 10 % confidence intervals are  0.083 0.095
+BIC =  -439.97 
+
+Measures of factor score adequacy             
+                                                 g   F1*   F2*  F3*
+Correlation of scores with factors            0.87  0.69  0.65 0.73
+Multiple R square of scores with factors      0.76  0.47  0.42 0.53
+Minimum correlation of factor score estimates 0.52 -0.05 -0.15 0.07
+
+ Total, General and Subset omega for each subset
+                                                 g  F1*  F2*  F3*
+Omega total for total scores and subscales    0.94 0.88 0.81 0.80
+Omega general for total scores and subscales  0.75 0.66 0.61 0.55
+Omega group for total scores and subscales    0.09 0.22 0.20 0.25
+```
+
+![Omega internal structure with all the items](report/omega_n3.png)
+
+
+* Itens without loading in factors
+```
+          g   F1*   F2*   F3*   h2   u2   p2
+Item20 0.58                   0.43 0.57 0.79
+```
+
+* Cross-loading problems
+```
+          g   F1*   F2*   F3*   h2   u2   p2
+Item1  0.57  0.28  0.22       0.44 0.56 0.72
+Item2  0.63  0.32  0.23       0.56 0.44 0.71
+Item6  0.59  0.37        0.24 0.55 0.45 0.64
+Item9  0.60  0.20  0.26       0.47 0.53 0.77
+Item11 0.61  0.21  0.22       0.46 0.54 0.79
+```
+
+#### Omega with the items sugested by the CFA model structure model
+
+```
+Alpha:                 0.91 
+G.6:                   0.92 
+Omega Hierarchical:    0.71 
+Omega H asymptotic:    0.77 
+Omega Total            0.92 
+
+Schmid Leiman Factor loadings greater than  0.2 
+          g   F1*   F2*   F3*   h2   u2   p2
+Item3  0.57  0.50             0.57 0.43 0.56
+Item4  0.60  0.49             0.59 0.41 0.60
+Item5  0.59  0.46             0.57 0.43 0.61
+Item6  0.57  0.36  0.23       0.51 0.49 0.63
+Item12 0.40        0.27  0.21 0.28 0.72 0.56
+Item13 0.57        0.47       0.56 0.44 0.58
+Item14 0.45        0.32  0.22 0.36 0.64 0.57
+Item15 0.55        0.55       0.61 0.39 0.50
+Item17 0.55        0.36       0.45 0.55 0.68
+Item18 0.56        0.31       0.44 0.56 0.71
+Item19 0.57              0.45 0.53 0.47 0.61
+Item21 0.47              0.30 0.32 0.68 0.68
+Item23 0.51              0.26 0.35 0.65 0.74
+Item2  0.61  0.36        0.24 0.56 0.44 0.67
+Item9  0.57  0.20        0.28 0.44 0.56 0.73
+Item11 0.59  0.25        0.23 0.47 0.53 0.74
+Item16 0.41              0.35 0.30 0.70 0.55
+
+With eigenvalues of:
+   g  F1*  F2*  F3* 
+4.96 1.14 1.03 0.78 
+
+general/max  4.34   max/min =   1.47
+mean percent general =  0.63    with sd =  0.07 and cv of  0.12 
+Explained Common Variance of the general factor =  0.63 
+
+The degrees of freedom are 88  and the fit is  0.73 
+The number of observations was  380  with Chi Square =  269.36  with prob <  2.8e-20
+The root mean square of the residuals is  0.04 
+The df corrected root mean square of the residuals is  0.05
+RMSEA index =  0.074  and the 10 % confidence intervals are  0.064 0.084
+BIC =  -253.38
+
+Compare this with the adequacy of just a general factor and no group factors
+The degrees of freedom for just the general factor are 119  and the fit is  1.75 
+The number of observations was  380  with Chi Square =  652.34  with prob <  1.6e-74
+The root mean square of the residuals is  0.11 
+The df corrected root mean square of the residuals is  0.12 
+
+RMSEA index =  0.109  and the 10 % confidence intervals are  0.101 0.117
+BIC =  -54.54 
+
+Measures of factor score adequacy             
+                                                 g   F1*  F2*   F3*
+Correlation of scores with factors            0.85  0.69 0.71  0.65
+Multiple R square of scores with factors      0.71  0.48 0.50  0.43
+Minimum correlation of factor score estimates 0.43 -0.05 0.00 -0.15
+
+ Total, General and Subset omega for each subset
+                                                 g  F1*  F2*  F3*
+Omega total for total scores and subscales    0.92 0.86 0.80 0.73
+Omega general for total scores and subscales  0.71 0.59 0.52 0.51
+Omega group for total scores and subscales    0.12 0.27 0.29 0.22
+```
+
+![Omega internal structure with the items sugessted by the CFA model structure](report/omega_cfa3.png)
+
+
+
+* Cross-loading problems
+```
+          g   F1*   F2*   F3*   h2   u2   p2
+Item6  0.57  0.36  0.23       0.51 0.49 0.63
+Item12 0.40        0.27  0.21 0.28 0.72 0.56
+Item14 0.45        0.32  0.22 0.36 0.64 0.57
+Item2  0.61  0.36        0.24 0.56 0.44 0.67
+Item9  0.57  0.20        0.28 0.44 0.56 0.73
+Item11 0.59  0.25        0.23 0.47 0.53 0.74
+```
+
+
+#### Omega with the items sugested by the alternative CFA model structure model
+
+```
+Alpha:                 0.88 
+G.6:                   0.89 
+Omega Hierarchical:    0.71 
+Omega H asymptotic:    0.78 
+Omega Total            0.9 
+
+Schmid Leiman Factor loadings greater than  0.2 
+          g   F1*   F2*   F3*   h2   u2   p2
+Item3  0.54        0.47       0.52 0.48 0.57
+Item4  0.64        0.54       0.72 0.28 0.57
+Item5  0.61        0.45       0.58 0.42 0.64
+Item6  0.59        0.36       0.51 0.49 0.68
+Item12 0.38  0.30             0.24 0.76 0.61
+Item13 0.57  0.49             0.57 0.43 0.58
+Item14 0.45  0.34             0.32 0.68 0.62
+Item15 0.56  0.53             0.60 0.40 0.53
+Item17 0.56  0.33             0.44 0.56 0.71
+Item18 0.56  0.30             0.42 0.58 0.74
+Item19 0.57              0.45 0.54 0.46 0.61
+Item21 0.52              0.49 0.51 0.49 0.53
+Item23 0.50              0.22 0.33 0.67 0.77
+
+With eigenvalues of:
+   g  F1*  F2*  F3* 
+3.90 0.99 0.88 0.53 
+
+general/max  3.95   max/min =   1.85
+mean percent general =  0.63    with sd =  0.08 and cv of  0.12 
+Explained Common Variance of the general factor =  0.62 
+
+The degrees of freedom are 42  and the fit is  0.32 
+The number of observations was  380  with Chi Square =  118.27  with prob <  3.5e-09
+The root mean square of the residuals is  0.04 
+The df corrected root mean square of the residuals is  0.05
+RMSEA index =  0.069  and the 10 % confidence intervals are  0.055 0.084
+BIC =  -131.22
+
+Compare this with the adequacy of just a general factor and no group factors
+The degrees of freedom for just the general factor are 65  and the fit is  1.17 
+The number of observations was  380  with Chi Square =  434.93  with prob <  3.8e-56
+The root mean square of the residuals is  0.11 
+The df corrected root mean square of the residuals is  0.12 
+
+RMSEA index =  0.122  and the 10 % confidence intervals are  0.112 0.134
+BIC =  48.82 
+
+Measures of factor score adequacy             
+                                                 g   F1*   F2*   F3*
+Correlation of scores with factors            0.85  0.70  0.70  0.64
+Multiple R square of scores with factors      0.72  0.49  0.48  0.41
+Minimum correlation of factor score estimates 0.44 -0.02 -0.03 -0.18
+
+ Total, General and Subset omega for each subset
+                                                 g  F1*  F2*  F3*
+Omega total for total scores and subscales    0.90 0.81 0.84 0.70
+Omega general for total scores and subscales  0.71 0.52 0.53 0.46
+Omega group for total scores and subscales    0.14 0.29 0.31 0.24
+```
+
+![Omega internal structure with the items sugessted by the alternative CFA model structure](report/omega_cfa3alt.png)
+
+**items without cross-loading problems**
+
+
+> Summary of all omega-fits in the file: [report/omega-fit.csv](report/omega-fit.csv)
+
+
+
 
 
 ### Reliability Test
 
 Cronbach's alpha for reliability test in which DTL = Digital Tecnology Level (all itenms);
-ML1 = Pedagogical Level (```Pedagógica``` - Item4,Item5,Item3,Item6);
-ML2 = Digital Citizenship (```Pedagógica``` - Item15,Item13,Item17,Item18,Item14,Item12); and
-ML3 = Professional Development (```Desenvolvimento Profissional``` - Item19,Item2,Item11,Item16,Item9,Item23,Item21)
+
+* ML1 = Pedagogical Level (```Pedagógica``` - Item3, Item4, Item5, Item6);
+* ML2 = Digital Citizenship (```Cidadania Digital``` - Item12, Item13, Item14, Item15, Item17, Item18); and
+* ML3 = Professional Development (```Desenvolvimento Profissional``` - Item19, Item21, Item23)
+
+
 
 ```
-                                        val   n  DTL  ML1  ML2  ML3
-1                                      Todos 330 0.91 0.83 0.80 0.82
-17                 Unidade: UFAL A.C. Simões 241 0.91 0.84 0.79 0.82
-29                   Unidade: UFAL Arapiraca  55 0.91 0.82 0.85 0.79
-9                     Etapa: Ensino Superior 324 0.91 0.83 0.80 0.82
-3           Area: Ciências Exatas e da Terra  48 0.90 0.79 0.78 0.79
-4                     Area: Ciências Humanas  45 0.92 0.85 0.82 0.80
-5           Area: Ciências Sociais Aplicadas  53 0.90 0.85 0.76 0.84
-6                    Area: Ciências da Saúde  65 0.91 0.83 0.80 0.80
-7                          Area: Engenharias  31 0.89 0.79 0.77 0.86
-8           Area: Linguística.Letras e Artes  32 0.91 0.85 0.80 0.86
-2  Formação: Formação continuada - Concluída  46 0.89 0.77 0.84 0.76
+                                            n   DTL  ML1  ML2  ML3
+Todos                                      330 0.88 0.83 0.80 0.69
+Unidade: UFAL A.C. Simões                  241 0.88 0.84 0.79 0.68
+Unidade: UFAL Arapiraca                     55 0.89 0.82 0.85 0.66
+Etapa: Ensino Superior                     324 0.88 0.83 0.80 0.70
+Area: Ciências Exatas e da Terra            48 0.88 0.79 0.78 0.70
+Area: Ciências Sociais Aplicadas            53 0.86 0.85 0.76 0.72
+Area: Ciências Humanas                      45 0.90 0.85 0.82 0.66
+Area: Linguística.Letras e Artes            32 0.87 0.85 0.80 0.78
+Area: Engenharias                           31 0.85 0.79 0.77 0.74
+Area: Ciências da Saúde                     65 0.90 0.83 0.80 0.72
+Formação: Formação continuada - Concluída   46 0.88 0.77 0.84 0.65
 ```
 
+All Cronbach's aplha values indicate acceptable internal consistency
+
+| Cronbach's alpha | Internal consistency |
+|------------------|----------------------|
+| >= 0.9 | Excellent |
+| from 0.70 to 0.90 | Good | 
+| from 0.60 to 0.70 | Acceptable |
+| from 0.50 to 0.60 | Poor |
+| < 0.50 | Unacceptable |
 
 Detailed information of reliability test in the excel-file: [report/reliability/full-all.xlsx](report/reliability/full-all.xlsx)
 
@@ -1145,5 +2292,9 @@ Summary: [report/reliability/summary-all.csv](report/reliability/summary-all.csv
 Assumption: The sample size for groups should be greather than 100.
 
 There are not two groups by ```Unidade```, ```Etapa```, ```Area``` and ```Formação``` with  ```n > 100```, so that we can't carry out MGCFA.  
+
+
+
+
 
 

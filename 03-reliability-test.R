@@ -21,7 +21,32 @@ library(daff)
 library(robustHD)
 library(stringr)
 
-dat <- read_csv('data/responses-cfa.csv')
+ML1items <- c("Item3","Item4","Item5","Item6")
+ML2items <- c("Item12","Item13","Item14","Item15","Item17","Item18")
+ML3items <- c("Item19","Item21","Item23")
+
+allItems <- c(ML1items, ML2items, ML3items)
+
+
+## preparing data to perform Alpha's Cronbach (reliability test)
+
+dat <- read_csv('data/responses.csv')
+
+etapa.de.ensino <- unique(unlist(str_split(unique(dat$etapa.de.ensino),';')))
+area.de.conhecimento <- unique(unlist(str_split(unique(dat$area.de.conhecimento),';')))
+formacao.continuada <- unique(unlist(str_split(unique(dat$formacao.continuada),';')))
+
+idx <- (dat$etapa.de.ensino %in% etapa.de.ensino &
+          dat$area.de.conhecimento %in% area.de.conhecimento &
+          dat$formacao.continuada %in% formacao.continuada) 
+
+rdat <- select(dat[idx,], -starts_with("Item"))
+datItem <- dat[,c('ID',allItems)]
+rdat <- merge(rdat, datItem)
+
+## performing Alpha's Cronbach (reliability test)
+
+dat <- rdat
 dat$area.de.conhecimento <- as.vector(sapply(dat$area.de.conhecimento, FUN = function(x) {
   stringr::str_replace_all(x, "/", ".")
 })) 
@@ -43,10 +68,10 @@ reliability_df <- do.call(rbind, lapply(seq(1,nrow(groups)), FUN = function(i) {
   
   if (nrow(sdat) > 30) {
     alpha_mods <- list(
-      'all'=list(factor='all', mod=psych::alpha(sdat))
-      , 'ML1'=list(factor='ML1', mod=psych::alpha(sdat[,c('Item4','Item5','Item3','Item6')]))
-      , 'ML2'=list(factor='ML2', mod=psych::alpha(sdat[,c('Item15','Item13','Item17','Item18','Item14','Item12')]))
-      , 'ML3'=list(factor='ML3', mod=psych::alpha(sdat[,c('Item19','Item2','Item11','Item16','Item9','Item23','Item21')]))
+      'all'=list(factor='all', mod=psych::alpha(sdat[allItems]))
+      , 'ML1'=list(factor='ML1', mod=psych::alpha(sdat[,c(ML1items)]))
+      , 'ML2'=list(factor='ML2', mod=psych::alpha(sdat[,c(ML2items)]))
+      , 'ML3'=list(factor='ML3', mod=psych::alpha(sdat[,c(ML3items)]))
     )
     
     # write reliability analysis
