@@ -1,0 +1,325 @@
+"","ID","area.de.conhecimento","pedagogica"
+"1","Obs1","Ciências Exatas e da Terra",2.5
+"2","Obs2","Ciências Sociais Aplicadas",2.25
+"3","Obs3","Ciências Humanas",1.25
+"4","Obs4","Ciências Sociais Aplicadas",4.25
+"5","Obs5","Linguística/Letras e Artes",2
+"6","Obs6","Ciências Biológicas",1.75
+"7","Obs9","Engenharias",2.25
+"8","Obs10","Ciências Sociais Aplicadas",1.25
+"9","Obs11","Ciências Sociais Aplicadas",3.75
+"10","Obs12","Ciências Sociais Aplicadas",3.5
+"11","Obs13","Ciências Sociais Aplicadas",2.75
+"12","Obs14","Ciências Sociais Aplicadas",1.75
+"13","Obs15","Ciências Sociais Aplicadas",4.25
+"14","Obs16","Ciências Sociais Aplicadas",4
+"15","Obs17","Ciências Humanas",3.75
+"16","Obs18","Linguística/Letras e Artes",1
+"17","Obs19","Ciências Exatas e da Terra",1.75
+"18","Obs20","Ciências Humanas",3.25
+"19","Obs21","Ciências Exatas e da Terra",2.25
+"20","Obs22","Ciências Exatas e da Terra",2
+"21","Obs23","Ciências Exatas e da Terra",1.25
+"22","Obs24","Ciências Agrárias",2.5
+"23","Obs25","Ciências Humanas",2
+"24","Obs26","Ciências Sociais Aplicadas",3.75
+"25","Obs27","Ciências Sociais Aplicadas",1
+"26","Obs28","Linguística/Letras e Artes",2.75
+"27","Obs29","Ciências Humanas",1.5
+"28","Obs30","Ciências Sociais Aplicadas",1.5
+"29","Obs31","Ciências Sociais Aplicadas",1.75
+"30","Obs32","Ciências Sociais Aplicadas",1.75
+"31","Obs33","Ciências Humanas",3.5
+"32","Obs34","Linguística/Letras e Artes",2.75
+"33","Obs35","Engenharias",2.25
+"34","Obs36","Engenharias",3.5
+"35","Obs37","Engenharias",3.5
+"36","Obs38","Ciências Humanas",3
+"37","Obs39","Ciências Sociais Aplicadas",4
+"38","Obs40","Ciências da Saúde",1.25
+"39","Obs41","Ciências Humanas",2.5
+"40","Obs42","Ciências Humanas",1.5
+"41","Obs43","Ciências Exatas e da Terra",3.5
+"42","Obs44","Ciências Agrárias",1
+"43","Obs45","Ciências Exatas e da Terra",3.5
+"44","Obs46","Ciências Humanas",1.75
+"45","Obs47","Ciências Agrárias",1.75
+"46","Obs48","Ciências Humanas",3.75
+"47","Obs49","Ciências Exatas e da Terra",1.75
+"48","Obs50","Engenharias",1
+"49","Obs51","Ciências Sociais Aplicadas",1.25
+"50","Obs52","Ciências Exatas e da Terra",1
+"51","Obs53","Ciências da Saúde",1
+"52","Obs55","Ciências Sociais Aplicadas",1.5
+"53","Obs56","Engenharias",2.75
+"54","Obs57","Ciências Humanas",2.5
+"55","Obs58","Ciências Sociais Aplicadas",3.25
+"56","Obs59","Ciências Sociais Aplicadas",1.25
+"57","Obs60","Ciências da Saúde",3.75
+"58","Obs61","Ciências Humanas",2.25
+"59","Obs62","Ciências Sociais Aplicadas",4.5
+"60","Obs63","Ciências Humanas",1.25
+"61","Obs64","Engenharias",1.75
+"62","Obs65","Ciências Sociais Aplicadas",3
+"63","Obs66","Ciências Sociais Aplicadas",4
+"64","Obs67","Ciências Exatas e da Terra",3.75
+"65","Obs68","Linguística/Letras e Artes",3.25
+"66","Obs69","Engenharias",1.75
+"67","Obs70","Ciências Exatas e da Terra",2.75
+"68","Obs71","Ciências Exatas e da Terra",3.25
+"69","Obs72","Ciências Exatas e da Terra",1.75
+"70","Obs73","Linguística/Letras e Artes",1.75
+"71","Obs74","Engenharias",4.25
+"72","Obs75","Ciências Exatas e da Terra",1.75
+"73","Obs76","Ciências Humanas",2.75
+"74","Obs77","Linguística/Letras e Artes",2.5
+"75","Obs78","Ciências da Saúde",2
+"76","Obs79","Ciências Sociais Aplicadas",1.5
+"77","Obs80","Ciências Humanas",2
+"78","Obs81","Ciências Agrárias",2
+"79","Obs82","Ciências Exatas e da Terra",3.5
+"80","Obs83","Ciências Exatas e da Terra",1.25
+"81","Obs84","Ciências Exatas e da Terra",3.5
+"82","Obs85","Ciências Humanas",3.5
+"83","Obs86","Ciências Sociais Aplicadas",2.25
+"84","Obs87","Ciências Sociais Aplicadas",1.25
+"85","Obs88","Ciências Humanas",4.25
+"86","Obs89","Ciências Biológicas",1.5
+"87","Obs90","Ciências da Saúde",1.25
+"88","Obs91","Linguística/Letras e Artes",1.25
+"89","Obs92","Ciências Agrárias",1.5
+"90","Obs93","Ciências da Saúde",1.75
+"91","Obs94","Ciências Humanas",2.5
+"92","Obs95","Ciências da Saúde",2.5
+"93","Obs97","Ciências da Saúde",2
+"94","Obs98","Ciências Humanas",4
+"95","Obs99","Ciências Biológicas",1
+"96","Obs100","Ciências Agrárias",2
+"97","Obs101","Ciências da Saúde",2.5
+"98","Obs102","Ciências da Saúde",1.5
+"99","Obs103","Ciências Agrárias",1.25
+"100","Obs104","Ciências Exatas e da Terra",1.25
+"101","Obs105","Ciências da Saúde",1.25
+"102","Obs106","Linguística/Letras e Artes",3.75
+"103","Obs107","Ciências Humanas",2
+"104","Obs108","Ciências Exatas e da Terra",1.25
+"105","Obs109","Engenharias",2.75
+"106","Obs110","Ciências Sociais Aplicadas",1
+"107","Obs111","Ciências Agrárias",1.5
+"108","Obs112","Ciências Sociais Aplicadas",1.25
+"109","Obs113","Ciências Sociais Aplicadas",1.75
+"110","Obs114","Ciências Biológicas",1.75
+"111","Obs115","Ciências da Saúde",1.5
+"112","Obs116","Ciências Agrárias",1.5
+"113","Obs117","Ciências da Saúde",2.5
+"114","Obs118","Ciências Biológicas",2.75
+"115","Obs119","Ciências Humanas",1
+"116","Obs120","Ciências Sociais Aplicadas",3
+"117","Obs121","Ciências Exatas e da Terra",1.25
+"118","Obs122","Ciências Biológicas",1.25
+"119","Obs123","Ciências Humanas",2.25
+"120","Obs124","Ciências da Saúde",1
+"121","Obs125","Ciências da Saúde",2.5
+"122","Obs126","Ciências Humanas",2.5
+"123","Obs127","Ciências Exatas e da Terra",4.5
+"124","Obs128","Ciências Sociais Aplicadas",1.25
+"125","Obs129","Ciências Exatas e da Terra",3.5
+"126","Obs130","Linguística/Letras e Artes",4
+"127","Obs131","Ciências Humanas",2
+"128","Obs132","Ciências Exatas e da Terra",2.5
+"129","Obs133","Ciências Biológicas",1.5
+"130","Obs134","Linguística/Letras e Artes",3
+"131","Obs135","Ciências Agrárias",1.75
+"132","Obs136","Ciências Humanas",2.5
+"133","Obs137","Ciências Sociais Aplicadas",1.5
+"134","Obs138","Linguística/Letras e Artes",1.25
+"135","Obs139","Ciências da Saúde",1.25
+"136","Obs140","Ciências Biológicas",1
+"137","Obs141","Engenharias",1
+"138","Obs142","Ciências Sociais Aplicadas",1.75
+"139","Obs143","Engenharias",1.75
+"140","Obs144","Ciências Sociais Aplicadas",2
+"141","Obs145","Ciências da Saúde",2
+"142","Obs146","Ciências da Saúde",1.5
+"143","Obs147","Ciências Sociais Aplicadas",1
+"144","Obs148","Engenharias",1.25
+"145","Obs149","Ciências Exatas e da Terra",1.5
+"146","Obs150","Ciências Humanas",3.25
+"147","Obs151","Ciências Biológicas",1
+"148","Obs152","Ciências da Saúde",1.25
+"149","Obs153","Ciências Agrárias",1
+"150","Obs154","Ciências Agrárias",1.25
+"151","Obs155","Ciências Agrárias",3
+"152","Obs156","Ciências da Saúde",2.75
+"153","Obs157","Ciências da Saúde",1.5
+"154","Obs158","Engenharias",2
+"155","Obs159","Ciências Exatas e da Terra",2.75
+"156","Obs160","Ciências Agrárias",4.25
+"157","Obs161","Ciências Biológicas",2.5
+"158","Obs162","Ciências da Saúde",1.5
+"159","Obs163","Ciências Sociais Aplicadas",2.5
+"160","Obs164","Ciências Humanas",1.75
+"161","Obs165","Ciências da Saúde",2
+"162","Obs166","Ciências Agrárias",4
+"163","Obs167","Ciências da Saúde",3
+"164","Obs168","Ciências Biológicas",1.75
+"165","Obs169","Ciências da Saúde",2.25
+"166","Obs170","Ciências da Saúde",1
+"167","Obs171","Ciências Biológicas",3.75
+"168","Obs172","Ciências Agrárias",1
+"169","Obs173","Ciências da Saúde",2
+"170","Obs174","Ciências da Saúde",1
+"171","Obs175","Ciências Humanas",1
+"172","Obs176","Ciências Humanas",1
+"173","Obs177","Ciências Exatas e da Terra",1.5
+"174","Obs178","Ciências Biológicas",3.5
+"175","Obs179","Ciências Sociais Aplicadas",3.5
+"176","Obs180","Ciências Humanas",1.25
+"177","Obs181","Ciências da Saúde",2.5
+"178","Obs182","Ciências da Saúde",2.75
+"179","Obs183","Engenharias",2.5
+"180","Obs184","Ciências da Saúde",1.25
+"181","Obs185","Ciências Exatas e da Terra",2
+"182","Obs186","Ciências Agrárias",2.75
+"183","Obs187","Ciências Humanas",1
+"184","Obs188","Ciências Humanas",5
+"185","Obs189","Ciências Biológicas",1
+"186","Obs190","Ciências Exatas e da Terra",1.5
+"187","Obs191","Ciências da Saúde",2.25
+"188","Obs192","Engenharias",2
+"189","Obs193","Engenharias",2.5
+"190","Obs194","Ciências Sociais Aplicadas",3.25
+"191","Obs195","Ciências Agrárias",1.5
+"192","Obs196","Ciências Biológicas",3.5
+"193","Obs197","Ciências Agrárias",3
+"194","Obs198","Ciências Biológicas",1
+"195","Obs199","Ciências Agrárias",2.25
+"196","Obs200","Ciências Exatas e da Terra",1.5
+"197","Obs201","Ciências da Saúde",1
+"198","Obs202","Ciências Agrárias",1
+"199","Obs203","Ciências Exatas e da Terra",3.5
+"200","Obs204","Ciências da Saúde",1.25
+"201","Obs205","Ciências da Saúde",2.75
+"202","Obs206","Ciências Exatas e da Terra",2.75
+"203","Obs207","Engenharias",1.5
+"204","Obs208","Ciências da Saúde",4
+"205","Obs209","Ciências Exatas e da Terra",1.75
+"206","Obs210","Linguística/Letras e Artes",1
+"207","Obs211","Ciências Agrárias",3.75
+"208","Obs213","Ciências Sociais Aplicadas",2.25
+"209","Obs214","Ciências Biológicas",1
+"210","Obs215","Ciências Humanas",4
+"211","Obs216","Ciências Exatas e da Terra",2.75
+"212","Obs217","Linguística/Letras e Artes",3.5
+"213","Obs218","Engenharias",1.75
+"214","Obs219","Linguística/Letras e Artes",1
+"215","Obs220","Ciências Sociais Aplicadas",2.75
+"216","Obs221","Linguística/Letras e Artes",2
+"217","Obs222","Linguística/Letras e Artes",3.25
+"218","Obs223","Linguística/Letras e Artes",1.25
+"219","Obs224","Linguística/Letras e Artes",3
+"220","Obs225","Ciências Agrárias",1.75
+"221","Obs226","Ciências Sociais Aplicadas",1.75
+"222","Obs227","Linguística/Letras e Artes",1.25
+"223","Obs228","Ciências Exatas e da Terra",2.75
+"224","Obs229","Ciências Biológicas",1.75
+"225","Obs230","Ciências da Saúde",3.75
+"226","Obs231","Linguística/Letras e Artes",4
+"227","Obs232","Ciências Humanas",1.75
+"228","Obs233","Linguística/Letras e Artes",2
+"229","Obs234","Linguística/Letras e Artes",4.75
+"230","Obs235","Linguística/Letras e Artes",1
+"231","Obs236","Ciências da Saúde",1
+"232","Obs237","Ciências da Saúde",2
+"233","Obs238","Ciências Humanas",1.25
+"234","Obs239","Ciências Biológicas",1.25
+"235","Obs240","Linguística/Letras e Artes",2.5
+"236","Obs241","Ciências da Saúde",4
+"237","Obs242","Ciências Humanas",1.25
+"238","Obs243","Linguística/Letras e Artes",2.75
+"239","Obs244","Ciências Sociais Aplicadas",1
+"240","Obs245","Linguística/Letras e Artes",2.5
+"241","Obs246","Ciências da Saúde",2.25
+"242","Obs247","Engenharias",1.25
+"243","Obs249","Ciências da Saúde",1.5
+"244","Obs250","Ciências Sociais Aplicadas",3.25
+"245","Obs251","Linguística/Letras e Artes",2.5
+"246","Obs252","Ciências Sociais Aplicadas",2.5
+"247","Obs253","Ciências Humanas",3.25
+"248","Obs254","Ciências Exatas e da Terra",2.25
+"249","Obs255","Ciências Exatas e da Terra",3.5
+"250","Obs256","Ciências da Saúde",1
+"251","Obs257","Ciências da Saúde",1.5
+"252","Obs258","Ciências da Saúde",1.25
+"253","Obs259","Ciências Humanas",1.75
+"254","Obs260","Ciências Humanas",1.75
+"255","Obs261","Ciências da Saúde",2.25
+"256","Obs262","Ciências Sociais Aplicadas",2.25
+"257","Obs263","Ciências Humanas",2
+"258","Obs264","Linguística/Letras e Artes",2.75
+"259","Obs265","Ciências da Saúde",2
+"260","Obs266","Ciências da Saúde",1.75
+"261","Obs267","Ciências Exatas e da Terra",1
+"262","Obs268","Engenharias",2
+"263","Obs269","Ciências Exatas e da Terra",2.75
+"264","Obs270","Ciências Humanas",1
+"265","Obs271","Engenharias",2
+"266","Obs272","Ciências da Saúde",2
+"267","Obs273","Ciências da Saúde",2.75
+"268","Obs274","Ciências Biológicas",2.25
+"269","Obs275","Ciências Sociais Aplicadas",1.25
+"270","Obs276","Engenharias",3.5
+"271","Obs277","Ciências da Saúde",1.5
+"272","Obs278","Engenharias",1.75
+"273","Obs279","Ciências Agrárias",2
+"274","Obs280","Engenharias",2.5
+"275","Obs281","Ciências da Saúde",1.75
+"276","Obs282","Ciências da Saúde",3.25
+"277","Obs283","Ciências da Saúde",3
+"278","Obs284","Ciências Agrárias",2.5
+"279","Obs285","Linguística/Letras e Artes",1.75
+"280","Obs286","Engenharias",1
+"281","Obs287","Linguística/Letras e Artes",3
+"282","Obs288","Ciências Sociais Aplicadas",2
+"283","Obs289","Engenharias",1.75
+"284","Obs290","Ciências Exatas e da Terra",1.25
+"285","Obs291","Ciências Exatas e da Terra",1.5
+"286","Obs292","Ciências Biológicas",1.25
+"287","Obs293","Ciências Exatas e da Terra",1.5
+"288","Obs294","Ciências da Saúde",2
+"289","Obs295","Linguística/Letras e Artes",1.75
+"290","Obs296","Ciências Humanas",2.5
+"291","Obs297","Ciências Exatas e da Terra",2
+"292","Obs298","Ciências da Saúde",2.5
+"293","Obs299","Engenharias",2
+"294","Obs300","Ciências Exatas e da Terra",2
+"295","Obs301","Engenharias",2.25
+"296","Obs302","Ciências Sociais Aplicadas",2.75
+"297","Obs303","Ciências Agrárias",1.25
+"298","Obs304","Ciências Biológicas",1.5
+"299","Obs305","Ciências Agrárias",1.75
+"300","Obs306","Ciências da Saúde",1.25
+"301","Obs307","Ciências da Saúde",1.75
+"302","Obs308","Ciências da Saúde",1.25
+"303","Obs309","Ciências Sociais Aplicadas",1.5
+"304","Obs310","Ciências Sociais Aplicadas",3
+"305","Obs311","Ciências da Saúde",1
+"306","Obs312","Ciências Exatas e da Terra",3.25
+"307","Obs313","Ciências Sociais Aplicadas",1
+"308","Obs314","Ciências Humanas",3.75
+"309","Obs315","Ciências da Saúde",1.25
+"310","Obs316","Ciências Exatas e da Terra",1.75
+"311","Obs317","Ciências Agrárias",1.5
+"312","Obs318","Engenharias",1.25
+"313","Obs319","Ciências Sociais Aplicadas",3.25
+"314","Obs320","Engenharias",2.5
+"315","Obs321","Ciências Exatas e da Terra",1.5
+"316","Obs322","Ciências da Saúde",5
+"317","Obs323","Ciências Sociais Aplicadas",1.75
+"318","Obs324","Ciências da Saúde",1.25
+"319","Obs325","Ciências Exatas e da Terra",2.25
+"320","Obs326","Ciências da Saúde",1
+"321","Obs327","Ciências Exatas e da Terra",1.75
+"322","Obs328","Ciências da Saúde",2.5
+"323","Obs329","Ciências Humanas",2.25
+"324","Obs330","Ciências Sociais Aplicadas",1.75

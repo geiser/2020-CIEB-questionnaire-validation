@@ -29,9 +29,13 @@
 
 **Testes de Hipóteses sobre a médias**
 
-* [ANOVA: `pedagogica` ~ `unidade`](anova-by-unidade/pedagogica/)
-* [ANOVA: `cidadania` ~ `unidade`](anova-by-unidade/cidadania/)
-* [ANOVA: `desenvolvimento` ~ `unidade`](anova-by-unidade/desenvolvimento/)
+* [ANOVA: `pedagogica` ~ `unidade`](anova-by-unidade/pedagogica/factorialAnova)
+* [ANOVA: `cidadania` ~ `unidade`](anova-by-unidade/cidadania/factorialAnova)
+* [ANOVA: `desenvolvimento` ~ `unidade`](anova-by-unidade/desenvolvimento/factorialAnova)
+
+* [ANOVA: `pedagogica` ~ `area.de.conhecimento`](anova-by-area/pedagogica/factorialAnova)
+* [ANOVA: `cidadania` ~ `area.de.conhecimento`](anova-by-area/cidadania/factorialAnova)
+* [ANOVA: `desenvolvimento` ~ `area.de.conhecimento`](anova-by-area/desenvolvimento/factorialAnova)
 
 
 ***
