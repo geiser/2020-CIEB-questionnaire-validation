@@ -34,12 +34,12 @@
 * [ANOVA test: `desenvolvimento` ~ `unidade`](anova-by-unidade/desenvolvimento/factorialAnova.md)
 
 * [ANOVA test: `pedagogica` ~ `area.de.conhecimento`](anova-by-area/pedagogica/factorialAnova.md)
-* [ANOVA test: `cidadania` ~ `area.de.conhecimento`](anova-by-area/cidadania/factorialAnova.md)
+* [ANOVA test: `cidadania` ~ `area.de.conhecimento`](anova-by-area/cidadania/factorialAnova.md) - (there is sig. difference)
 * [ANOVA test: `desenvolvimento` ~ `area.de.conhecimento`](anova-by-area/desenvolvimento/factorialAnova.md)
 
 
 * [Kruskal–Wallis test: `pedagogica` ~ `formacao.continuada`](kruskal-by-formacao/pedagogica/kruskal.md)
-* [Kruskal–Wallis test: `cidadania` ~ `formacao.continuada`](kruskal-by-formacao/cidadania/kruskal.md)
+* [Kruskal–Wallis test: `cidadania` ~ `formacao.continuada`](kruskal-by-formacao/cidadania/kruskal.md) - (there is sig. difference)
 * [Kruskal–Wallis test: `desenvolvimento` ~ `formacao.continuada`](kruskal-by-formacao/desenvolvimento/kruskal.md)
 
 
