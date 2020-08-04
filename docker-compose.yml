@@ -8,4 +8,4 @@ services:
     volumes:
       - ./:/home/gcc 
     ports:
-      - "8787:8787"
+      - "8686:8787"

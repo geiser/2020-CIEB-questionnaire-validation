@@ -24,7 +24,16 @@
     * [Definition of the final model](#definition-of-the-final-model)
   * [Reliability Test](#reliability-test)
   * [Multi-Group Confirmatory Factor Analysis (MGCFA)](#multi-group-confirmatory-factor-analysis-mgcfa)
-    
+
+***
+
+**Testes de Hipóteses sobre a médias**
+
+* [ANOVA: `pedagogica` ~ `unidade`](anova-by-unidade/pedagogica/)
+* [ANOVA: `cidadania` ~ `unidade`](anova-by-unidade/cidadania/)
+* [ANOVA: `desenvolvimento` ~ `unidade`](anova-by-unidade/desenvolvimento/)
+
+
 ***
 
 ## Identifying and removing careless responses

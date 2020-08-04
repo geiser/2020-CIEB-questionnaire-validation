@@ -1,0 +1,354 @@
+---
+title: "ANOVA `pedagogica` ~ `unidade`"
+author: Geiser C. Challco <geiser@usp.br>
+comment: This file is automatically generate by Shiny-Statistic app (https://statistic.geiser.tech/)
+         
+         Shiny-Statistic is distributed in the hope that it will be useful,
+         but WITHOUT ANY WARRANTY; without even the implied warranty of
+         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+         GNU General Public License for more details.
+         
+         You should have received a copy of the GNU General Public License.
+         If not, see <https://www.gnu.org/licenses/>.
+output:
+  pdf_document:
+    keep_tex: true
+  word_document: default
+  html_document: default
+  github_document: default
+---
+
+```{r setup, include=FALSE}
+wants <- c('ggpubr', 'emmeans', 'rstatix', 'fBasics', 'car', 'carData','dplyr','knitr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+
+library(knitr)
+opts_chunk$set(echo = TRUE)
+
+library(dplyr)
+library(carData)
+library(car)
+library(fBasics)
+library(rstatix)
+library(emmeans)
+
+library(ggpubr)
+library(moments)
+
+library(stats)
+
+normality_test <- function(x) {
+  plimit <- 0.05
+  n.test <- shapiro.test(x)
+  cutpoints <- c(0, 1e-04, 0.001, 0.01, 0.05, 1)
+  
+  if (length(x) > 30) {
+    plimit <- 0.01
+    cutpoints <- c(0, 1e-05, 1e-04, 0.001, 0.01, 1)
+  }
+  if (length(x) > 50) n.test <- dagoTest(x)@test
+  
+  normality <- ifelse(n.test$p.value[1] < plimit, 'NO', 'YES')
+  if (length(x) > 100) normality <- 'QQ'
+  if (length(x) > 200) normality <- '-'
+  
+  return(cbind(add_significance(data.frame(
+    n = length(x),
+    statistic = n.test$statistic[1],
+    method = strsplit(n.test$method, ' ')[[1]][1],
+    p = n.test$p.value[1]
+  ), p.col = "p", cutpoints = cutpoints), normality = normality))
+}
+
+normality_test_at <- function(dat, vars) {
+  df <- select(group_data(dat), -starts_with(".rows"))
+  do.call(rbind, lapply(vars, FUN = function(v) {
+    do.call(rbind, lapply(seq(1, nrow(group_data(dat))), FUN = function(i) {
+      n.test <- normality_test(dat[[v]][group_data(dat)[[".rows"]][[i]]]) 
+      cbind(variable = v, df[i,] , n.test)
+    }))
+  }))
+}
+
+df2qqs <- function(data, group) {
+  data <- as.data.frame(data)
+  for (iv in group) {
+    if (is.numeric(data[[iv]])) {
+      quantiles <- quantile(data[[iv]])
+      data[[iv]] <- sapply(data[[iv]], FUN = function(x) {
+        if (x <= quantiles[[2]]) "low"
+        else if (x >= quantiles[[4]]) "high"
+        else "medium"
+      })
+      data[[iv]] <- factor(data[[iv]], levels=c("low", "medium", "high"))
+    }
+  }
+  return(data)
+}
+
+ggPlotAoV <- function(data, x, y, color = c(), aov, pwc, linetype = color, by = c(), addParam = c() ) {
+  pwc <- tryCatch(add_xy_position(pwc, x = x), error = function(e) NULL)
+  if (is.null(pwc)) return(ggplot())
+  if (length(color) > 0) {
+    bxp <- ggboxplot(data, x = x, y = y, color = color, palette = "jco", add=addParam, facet.by = by)
+    bxp <- bxp + stat_pvalue_manual(pwc, color = color, linetype = linetype, hide.ns = T
+                                    , tip.length = 0, step.increase = 0.1, step.group.by = by)
+  } else {
+    bxp <- ggboxplot(data, x = x, y = y, color = x, palette = "jco", add=addParam, facet.by = by)
+    bxp <- bxp + stat_pvalue_manual(pwc, linetype = linetype, hide.ns = T
+                                    , tip.length = 0, step.increase = 0.1, step.group.by = by)
+  }
+  bxp <- bxp + labs(subtitle = get_test_label(aov, detailed = T), caption = get_pwc_label(pwc))
+  return(bxp)
+}
+
+emm <- list()
+
+dat <- read.csv("data.csv")[,c("ID", "unidade", "pedagogica" )]
+dat <- df2qqs(dat, c("unidade"))
+rownames(dat) <- dat[["ID"]]
+```
+
+* Report as Word format: [factorialAnova.docx](factorialAnova.docx)
+* Report as LaTex format: [factorialAnova.tex](factorialAnova.tex)
+
+## Initial Data and Preprocessing
+
+R script: [factorialAnova.R](factorialAnova.R)
+Inital data: [data.csv](data.csv)
+
+### Visualization of data distribution
+```{r}
+ggdensity(dat, x = "pedagogica", fill = "lightgray", title= "Density of pedagogica before transformation") +
+ stat_overlay_normal_density(color = "red", linetype = "dashed")
+```
+ 
+### Dealing with positive greater skewness in pedagogica
+```{r}
+dat[["pedagogica"]] <- log10(dat[["pedagogica"]])
+```
+```{r}
+ggdensity(dat, x = "pedagogica", fill = "lightgray", title= "Density of pedagogica after transformation") +
+ stat_overlay_normal_density(color = "red", linetype = "dashed")
+```
+
+
+### Summary statistics of the initial data
+
+```{r}
+get_summary_stats(group_by(dat, `unidade`), type ="common")
+```
+
+## Check Assumptions
+
+### Identifying outliers
+
+Outliers tend to increase type-I error probability, and they decrease the calculated F statistic in ANOVA resulting in a lower chance of reject the null hypothesis.
+
+* Identified outliers using rstatix
+
+```{r}
+identify_outliers(group_by(dat, `unidade`), `pedagogica`)
+```
+
+* Identified outliers through Boxplots
+
+```{r}
+Boxplot(`pedagogica` ~ `unidade`, data = dat, id = list(n = Inf))
+```
+
+### Removing outliers from the data
+
+```{r}
+outliers <- c("")
+rdat <- dat[!dat[["ID"]] %in% outliers,]   # table without outliers
+```
+
+```{r echo=FALSE}
+kable(dat[dat[["ID"]] %in% outliers,], caption = 'Outliers table')
+```
+
+### Normality assumption
+
+**Observation**:
+
+As sample sizes increase, ANOVA remains a valid test even with the violation of normality <sup>[[1](#references), [2](#references)]</sup>.
+According to the central limit theorem, the sampling distribution tends to be normal if the sample is large enough (`n > 30`). Therefore, we performed ANOVA with large samples as follows: 
+
+- In cases with the sample size greater than 30 (`n > 30`), we adopted a significance level of `p < 0.01` instead a significance level of `p < 0.05`.
+
+- For samples with `n > 50` observation, we adopted D'Agostino-Pearson test that offers better accuracy for larger samples <sup>[[3](#references)]</sup>.
+
+- For samples' size between `n > 100` and `n <= 200`, we ignored both tests (Shapiro and D'Agostino-Persons), and our decision of normality were based only in the interpretation of QQ-plots and histograms because these tests tend to be too sensitive with values greater than 200 <sup>[[3](#references)]</sup>.
+
+- For samples with `n > 200` observation, we ignore the normality assumption based on the central theorem limit, and taking only into account the homogeneity assumption.
+
+#### Checking normality assumption in the residual model
+
+```{r}
+mdl <- lm(`pedagogica` ~ `unidade`, data = rdat)
+normality_test(residuals(mdl))
+```
+
+The QQ plot used to evaluate normality assumption
+
+```{r}
+qqPlot(residuals(mdl))
+```
+
+#### Checking normality assumption for each group
+
+```{r}
+normality_test_at(group_by(rdat, `unidade`), "pedagogica")
+```
+
+* QQ plot in the **unidade**: "UFAL A.C. Simões" 
+```{r}
+qqPlot( ~ `pedagogica`, data = rdat[which(rdat["unidade"] == "UFAL A.C. Simões"),])
+```
+
+* QQ plot in the **unidade**: "UFAL Arapiraca" 
+```{r}
+qqPlot( ~ `pedagogica`, data = rdat[which(rdat["unidade"] == "UFAL Arapiraca"),])
+```
+
+* QQ plot in the **unidade**: "UFAL CECA" 
+```{r}
+qqPlot( ~ `pedagogica`, data = rdat[which(rdat["unidade"] == "UFAL CECA"),])
+```
+
+
+
+#### Removing data that affect normality
+
+```{r}
+non.normal <- c("Obs111","Obs239")
+sdat <- rdat[!rdat[["ID"]] %in% non.normal,]   # table without non-normal and outliers
+```
+
+```{r echo=FALSE}
+kable(rdat[rdat[["ID"]] %in% non.normal,], caption = 'Non-normal data table')
+```
+
+#### Performing normality test without data that affect normality 
+
+```r
+mdl <- lm(`pedagogica` ~ `unidade`, data = sdat)
+normality_test(residuals(mdl))
+```
+
+```{r echo=FALSE}
+mdl <- lm(`pedagogica` ~ `unidade`, data = sdat)
+kdf <- normality_test(residuals(mdl))
+kdf$p <- round(kdf$p, 4)
+kdf$p[which(kdf$p < 0.0001)] <- '< 0.0001'
+kable(kdf, digits = 4)
+```
+
+```r
+normality_test_at(group_by(sdat, `unidade`), "pedagogica")
+```
+
+```{r echo=FALSE}
+kdf <- add_significance(normality_test_at(group_by(sdat, `unidade`), "pedagogica"))
+kdf$p <- round(kdf$p, 4)
+kdf$p[which(kdf$p < 0.0001)] <- '< 0.0001'
+kable(kdf, digits = 4)
+```
+
+QQ plot in the residual model without data that affect normality
+
+```{r}
+qqPlot(residuals(mdl))
+```
+
+* QQ plot in the **unidade**: "UFAL A.C. Simões" 
+```{r}
+qqPlot( ~ `pedagogica`, data = sdat[which(sdat["unidade"] == "UFAL A.C. Simões"),])
+```
+
+* QQ plot in the **unidade**: "UFAL Arapiraca" 
+```{r}
+qqPlot( ~ `pedagogica`, data = sdat[which(sdat["unidade"] == "UFAL Arapiraca"),])
+```
+
+* QQ plot in the **unidade**: "UFAL CECA" 
+```{r}
+qqPlot( ~ `pedagogica`, data = sdat[which(sdat["unidade"] == "UFAL CECA"),])
+```
+
+
+
+### Homogeneity of variance assumption
+
+```r
+levene_test(sdat, `pedagogica` ~ `unidade`)
+```
+
+```{r echo=FALSE}
+kdf <- add_significance(levene_test(sdat, `pedagogica` ~ `unidade`))
+kdf$p <- round(kdf$p, 4)
+kdf$p[which(kdf$p < 0.0001)] <- '< 0.0001'
+kable(kdf, digits = 4)
+```
+
+From the output above, non-significant difference indicates homogeneity of variance in the different groups (Signif. codes:  0 **** 0.0001 *** 0.001 ** 0.01 * 0.05 ns 1).
+
+## Computation ANOVA
+
+```r
+res.aov <- anova_test(sdat, `pedagogica` ~ `unidade`, type = 2, effect.size = 'ges', detailed = T)
+get_anova_table(res.aov)
+```
+
+```{r echo=FALSE}
+res.aov <- anova_test(sdat, `pedagogica` ~ `unidade`, type = 2, effect.size = 'ges', detailed = T)
+kdf <- get_anova_table(res.aov)
+kdf$p <- round(kdf$p, 4)
+kdf$p[which(kdf$p < 0.0001)] <- '< 0.0001'
+kable(kdf, digits = 4)
+```
+
+## Post-hoct Tests (Pairwise Comparisons)
+
+* Estimated marginal means for **unidade**
+```r
+(emm[["unidade"]] <- emmeans_test(sdat, `pedagogica` ~ `unidade`, p.adjust.method = "bonferroni", detailed = T))
+```
+```{r echo=FALSE}
+emm[["unidade"]] <- emmeans_test(sdat, `pedagogica` ~ `unidade`, p.adjust.method = "bonferroni", detailed = T)
+kdf <- add_significance(emm[["unidade"]])
+kdf$p.adj <- round(kdf$p.adj, 4)
+kdf$p.adj[which(kdf$p.adj < 0.0001)] <- '< 0.0001'
+kable(kdf, digits = 4)
+```
+
+
+
+## Descriptive Statistic and ANOVA Plots 
+
+```r
+get_summary_stats(group_by(sdat, `unidade`), type ="common")
+```
+
+```{r echo=FALSE}
+kdf <- get_summary_stats(group_by(sdat, `unidade`), type ="common")
+cnames <- c("n","mean","median","min","max","sd","se","ci","iqr")
+kdf <- kdf[,c(colnames(kdf)[!colnames(kdf) %in% cnames], cnames)]
+kable(kdf, digits = 4)
+```
+
+```{r, fig.width=10, fig.height=10}
+ggPlotAoV(sdat, "unidade", "pedagogica", aov=res.aov, pwc=emm[["unidade"]], addParam=c("jitter"))
+```
+
+
+
+## References
+
+<sup>[1]</sup>: Blanca, M. J., Alarcón, R., Arnau, J., Bono, R., & Bendayan, R. (2017). Non-normal data: Is ANOVA still a valid option?. Psicothema, 29(4), 552-557.
+
+<sup>[2]</sup>: Ghasemi, A., & Zahediasl, S. (2012). Normality tests for statistical analysis: a guide for non-statisticians. International journal of endocrinology and metabolism, 10(2), 486.
+
+<sup>[3]</sup>: Miot, H. A. (2017). Assessing normality of data in clinical and experimental trials. J Vasc Bras, 16(2), 88-91.

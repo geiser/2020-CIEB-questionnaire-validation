@@ -1,6 +1,8 @@
 library(readr)
 library(stringr)
 library(dplyr)
+library(xlsx)
+library(r2excel)
 
 ML1items <- c("Item3","Item4","Item5","Item6")
 ML2items <- c("Item12","Item13","Item14","Item15","Item17","Item18")
@@ -28,17 +30,33 @@ rdat[['pedagogica']] <- (rdat[['Item3']]+rdat[['Item4']]+rdat[['Item5']]+rdat[['
 rdat[['cidadania']] <- (rdat[['Item12']]+rdat[['Item13']]+rdat[['Item14']]+rdat[['Item15']]+rdat[['Item17']]+rdat[['Item18']])/6
 rdat[['desenvolvimento']] <- (rdat[['Item19']]+rdat[['Item21']]+rdat[['Item23']])/3
 
-rdat <- select(rdat, -starts_with('Item'))
+rdat[['ID']] <- paste0('Obs',seq(1:nrow(rdat)))
 
 ## Writing data to perform hypotheses with means
-ngroups <- setdiff(colnames(rdat), c('ID','pedagogica','cidadania','desenvolvimento'))
+wb <- createWorkbook(type="xlsx")
+
+items <- colnames(select(rdat, starts_with('Item')))
+ngroups <- setdiff(colnames(rdat), c('ID',items,'pedagogica','cidadania','desenvolvimento'))
 for (n in 1:length(ngroups)) {
   comb_groups <- combn(ngroups, n)
   for (j in 1:ncol(comb_groups)) {
     cnames <- comb_groups[,j]
-    sdat <- rdat[,c('ID', cnames, 'pedagogica','cidadania','desenvolvimento')]
-    filename <- paste0('data/comp-digital-by-',paste0(cnames, collapse = '-'),'.csv')
-    write_csv(sdat[complete.cases(sdat),], filename)
+    pdat <- rdat[complete.cases(rdat[,cnames]),]
+      
+    allgroups <- do.call(paste0, sapply(cnames, FUN = function(cname) pdat[cname]))
+    validgroups <- table(allgroups)[table(allgroups) >= 15]
+    if (length(validgroups) >= 2) {
+      idx <- allgroups %in% names(validgroups)
+      sdat <- pdat[idx, c('ID', cnames, items, 'pedagogica','cidadania','desenvolvimento')]
+      
+      if (all(as.vector(sapply(cnames, FUN = function(cname) length(unique(sdat[[cname]])) >= 2)))) {
+        sheetName <- paste0('by-', paste0(as.vector(sapply(cnames, FUN = function(x) strsplit(x,"\\.")[[1]][1] )), collapse = '-'))
+        sheet <- createSheet(wb, sheetName = sheetName)
+        xlsx.addTable(wb, sheet, sdat, startCol = 1, row.names = F)
+      }
+    }
   }
 }
+saveWorkbook(wb, "report/digital-competences.xlsx")
+
 

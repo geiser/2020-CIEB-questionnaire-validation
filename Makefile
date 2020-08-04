@@ -7,7 +7,7 @@ services_dev_tty =  true
 PREFIX = /cygdrive/d/Users/gcc/Workspace/2020-CIEB-questionnaire-validation
 APP_NAME = 2020-CIEB-questionnaire-validation
 
-DD = "/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker"
+DD = "/cygdrive/c/ProgramData/DockerDesktop/version-bin/docker"
 DC = "/cygdrive/c/Program Files/Docker/Docker/resources/bin/docker-compose"
 
 
