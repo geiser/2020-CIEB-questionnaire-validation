@@ -1,0 +1,125 @@
+---
+title: "Kruskal–Wallis test `desenvolvimento` ~ `formacao.continuada`"
+author: Geiser C. Challco <geiser@usp.br>
+comment: This file is automatically generate by Shiny-Statistic app (https://statistic.geiser.tech/)
+         
+         Shiny-Statistic is distributed in the hope that it will be useful,
+         but WITHOUT ANY WARRANTY; without even the implied warranty of
+         MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+         GNU General Public License for more details.
+         
+         You should have received a copy of the GNU General Public License.
+         If not, see <https://www.gnu.org/licenses/>.
+output:
+  pdf_document:
+    keep_tex: true
+  github_document: default
+  html_document: default
+  word_document: default
+---
+
+```{r setup, include=FALSE}
+wants <- c('ggpubr', 'stats', 'rstatix', 'dplyr', 'knitr')
+has <- wants %in% rownames(installed.packages())
+if (any(!has)) install.packages(wants[!has])
+
+library(knitr)
+library(dplyr)
+library(rstatix)
+library(ggpubr)
+library(stats)
+
+kruskal.plot <- function(dat, dv, iv, kwm, pwc, addParam = c(), step.increase = 0.005) {
+  pwc <- tryCatch(add_xy_position(pwc, x = iv, step.increase = step.increase), error = function(e) NULL)
+  bxp <- ggboxplot(dat, x = iv, y = dv, color = iv, palette = "jco", add=addParam)
+  bxp <- bxp + stat_pvalue_manual(pwc, linetype = c(), hide.ns = T, tip.length = 0)
+  bxp <- bxp + labs(subtitle = get_test_label(kwm, detailed = T), caption = get_pwc_label(pwc))
+  return(bxp)
+}
+
+df2qqs <- function(data, group) {
+  data <- as.data.frame(data)
+  for (iv in group) {
+    if (is.numeric(data[[iv]])) {
+      quantiles <- quantile(data[[iv]])
+      data[[iv]] <- sapply(data[[iv]], FUN = function(x) {
+        if (x <= quantiles[[2]]) "low"
+        else if (x >= quantiles[[4]]) "high"
+        else "medium"
+      })
+      data[[iv]] <- factor(data[[iv]], levels=c("low", "medium", "high"))
+    }
+  }
+  return(data)
+}
+
+dat <- read.csv("data.csv")[,c("ID", "formacao.continuada", "desenvolvimento")]
+dat <- df2qqs(dat, c("formacao.continuada"))
+rownames(dat) <- dat[["ID"]]
+```
+
+* Report as Word format: [kruskal.docx](kruskal.docx)
+* Report as LaTex format: [kruskal.tex](kruskal.tex)
+
+## Initial Data and Preprocessing
+
+R script: [kruskal.R](kruskal.R)
+Inital data: [data.csv](data.csv)
+
+
+## Computation Kruskal-Wallis test and Effect Size
+
+```r
+(res.kruskal <- kruskal_test(dat, `desenvolvimento` ~ `formacao.continuada`))
+```
+
+```{r echo=FALSE}
+res.kruskal <- kruskal_test(dat, `desenvolvimento` ~ `formacao.continuada`)
+kdf <- add_significance(res.kruskal)
+kdf$p <- round(kdf$p, 4)
+kdf$p[which(kdf$p < 0.0001)] <- '< 0.0001'
+kable(kdf, digits = 4)
+```
+
+```r
+(ezm <- kruskal_effsize(dat, `desenvolvimento` ~ `formacao.continuada`, ci = TRUE))
+```
+
+```{r echo=FALSE}
+ezm <- kruskal_effsize(dat, `desenvolvimento` ~ `formacao.continuada`, ci = TRUE)
+kable(ezm, digits = 4)
+```
+
+## Post-hoc Tests (Pairwise Comparisons)
+
+```r
+pwc <- dunn_test(dat, `desenvolvimento` ~ `formacao.continuada`, detailed=T, p.adjust.method = "bonferroni")
+add_significance(pwc)
+```
+
+```{r echo=FALSE}
+pwc <- dunn_test(dat, `desenvolvimento` ~ `formacao.continuada`, detailed=T, p.adjust.method = "bonferroni")
+kdf <- add_significance(pwc)
+kdf$p <- round(kdf$p, 4)
+kdf$p[which(kdf$p < 0.0001)] <- '< 0.0001'
+kdf$p.adj <- round(kdf$p.adj, 4)
+kdf$p.adj[which(kdf$p.adj < 0.0001)] <- '< 0.0001'
+kable(kdf, digits = 4)
+```
+
+## Report Kruskal-Wallis test with Plots and Descriptive Statistic
+
+```r
+get_summary_stats(group_by(dat, `formacao.continuada`), type ="common")
+```
+
+```{r echo=FALSE}
+kdf <- get_summary_stats(group_by(dat, `formacao.continuada`), type ="common")
+cnames <- c("n","mean","median","min","max","sd","se","ci","iqr")
+kdf <- kdf[,c(colnames(kdf)[!colnames(kdf) %in% cnames], cnames)]
+kable(kdf, digits = 4)
+```
+
+```{r, fig.width=15, fig.height=10 }
+kruskal.plot(dat, "desenvolvimento", "formacao.continuada", res.kruskal, pwc, c("jitter"))
+```
